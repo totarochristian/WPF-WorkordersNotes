@@ -62,5 +62,18 @@ namespace EvernoteClone.ViewModel
 			};
 			DatabaseHelper.Insert(newNote);
 		}
+
+		private void GetNotebooks()
+		{
+			//Read notebooks from the database
+			var notebooks = DatabaseHelper.Read<Notebook>();
+			//Clear the collection
+			Notebooks.Clear();
+			//Add the notebooks readed in the collection
+			foreach(var notebook in notebooks)
+			{
+				Notebooks.Add(notebook);
+			}
+		}
 	}
 }
