@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace EvernoteClone.ViewModel.Commands
 {
-    class NewNoteCommand : ICommand
+    public class NewNoteCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged;
 
