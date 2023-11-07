@@ -28,7 +28,7 @@
         <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}" />
+                    <uc:DisplayNotebook Notebook="{Binding}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
