@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EvernoteClone.ViewModel
 {
-    class LoginVM
+    public class LoginVM
     {
+
     }
 }
