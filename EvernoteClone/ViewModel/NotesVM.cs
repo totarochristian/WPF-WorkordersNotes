@@ -71,7 +71,7 @@ namespace EvernoteClone.ViewModel
 				Id = notebookId,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now,
-				Title = "New note"
+				Title = $"Note for {DateTime.Now}"
 			};
 			DatabaseHelper.Insert(newNote);
 
