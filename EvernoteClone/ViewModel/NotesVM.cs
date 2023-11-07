@@ -68,10 +68,10 @@ namespace EvernoteClone.ViewModel
 		{
 			Note newNote = new Note()
 			{
-				Id = notebookId,
+				NotebookId = notebookId,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now,
-				Title = $"Note for {DateTime.Now}"
+				Title = $"Note for {DateTime.Now}",
 			};
 			DatabaseHelper.Insert(newNote);
 
