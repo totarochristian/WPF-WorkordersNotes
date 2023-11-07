@@ -12,5 +12,16 @@ namespace EvernoteClone.ViewModel
     {
         public ObservableCollection<Notebook> Notebooks { get; set; }
 
-    }
+		private Notebook selectedNotebook;
+
+		public Notebook SelectedNotebook
+		{
+			get { return selectedNotebook; }
+			set { 
+				selectedNotebook = value;
+
+			}
+		}
+
+	}
 }
