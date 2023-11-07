@@ -24,5 +24,7 @@ namespace EvernoteClone.ViewModel
 			}
 		}
 
+		public ObservableCollection<Note> Notes { get; set; }
+
 	}
 }
