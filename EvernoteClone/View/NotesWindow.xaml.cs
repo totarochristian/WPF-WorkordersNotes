@@ -42,5 +42,10 @@ namespace EvernoteClone.View
             //Update the status text block adding the length of the text in the rich text box
             statusTextBlock.Text = $"Document length: {ammountCharacters} characters";
         }
+
+        private void BoldButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
