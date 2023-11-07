@@ -8,7 +8,9 @@
         Title="NotesWindow" Height="300" Width="300">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            
+            <MenuItem Header="File">
+                
+            </MenuItem>
         </Menu>
         <Grid>
             
