@@ -30,5 +30,10 @@ namespace EvernoteClone.ViewModel
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
 
+		public NotesVM()
+		{
+			NewNotebookCommand = new NewNotebookCommand(this);
+			NewNoteCommand = new NewNoteCommand(this);
+		}
 	}
 }
