@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EvernoteClone.Model
 {
-    class Note
+    public class Note
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
