@@ -19,7 +19,7 @@ namespace EvernoteClone.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            //TODO: Login functionality
         }
     }
 }
