@@ -59,6 +59,9 @@ namespace EvernoteClone.ViewModel
 				Name = "New notebook"
 			};
 			DatabaseHelper.Insert(newNotebook);
+
+            //Update notebooks in the collection adding the values saved in the database
+            GetNotebooks();
 		}
 
 		public void CreateNote(int notebookId)
@@ -71,7 +74,10 @@ namespace EvernoteClone.ViewModel
 				Title = "New note"
 			};
 			DatabaseHelper.Insert(newNote);
-		}
+
+            //Update notes in the collection adding the values saved in the database
+            GetNotes();
+        }
 
 		private void GetNotebooks()
 		{
