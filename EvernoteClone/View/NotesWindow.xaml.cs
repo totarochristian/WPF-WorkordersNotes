@@ -45,7 +45,8 @@ namespace EvernoteClone.View
 
         private void BoldButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //Set the font weight of the selected text to bold
+            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
         }
     }
 }
