@@ -25,5 +25,8 @@
         <ListView DockPanel.Dock="Left" Width="140">
 
         </ListView>
+        <Grid>
+            
+        </Grid>
     </DockPanel>
 </Window>
