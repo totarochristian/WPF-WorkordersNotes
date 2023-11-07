@@ -9,6 +9,7 @@ namespace EvernoteClone.ViewModel.Commands
 {
     public class NewNotebookCommand : ICommand
     {
+        public NotesVM VM { get; set; }
         public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter)
