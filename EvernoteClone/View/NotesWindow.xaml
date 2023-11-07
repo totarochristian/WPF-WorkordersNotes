@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="NotesWindow" Height="300" Width="300">
     <Window.Resources>
-        <vw:NotesVM x:Key="viewModel"/>
+        <vw:NotesVM x:Key="vm"/>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
