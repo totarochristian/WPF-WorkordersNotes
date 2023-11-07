@@ -25,6 +25,12 @@ namespace EvernoteClone.View
         public NotesWindow()
         {
             InitializeComponent();
+
+            //Retrieve the system font families ordered by the name (source)
+            var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+            //Assign the font families ordered as source of font family combo box
+            fontFamilyComboBox.ItemsSource = fontFamilies;
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
