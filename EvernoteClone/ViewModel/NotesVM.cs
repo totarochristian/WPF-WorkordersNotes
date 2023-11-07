@@ -23,6 +23,7 @@ namespace EvernoteClone.ViewModel
 			set { 
 				selectedNotebook = value;
 
+				//Call the event to change the selected notebook in the list view
 				OnPropertyChanged("SelectedNotebook");
 
                 //Update notes in the collection using the id of the new selected notebook
