@@ -83,5 +83,26 @@ namespace EvernoteClone.ViewModel.Helpers
 
             return result;
         }
+
+        /// <summary>
+        /// Method that will read a list of objects of a generic type from a generic table of the database.
+        /// </summary>
+        /// <typeparam name="T">Type of the objects to be readed in the database</typeparam>
+        /// <returns>List with a generic type of object</returns>
+        public static List<T> Read<T>() where T : new()
+        {
+            List<T> items;
+
+            //Connect to the database
+            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            {
+                //Create a generic table in the database, if not exists
+                conn.CreateTable<T>();
+                //Retrieve the content of the generic table in a querable interface, convert it to a list and save in items
+                items = conn.Table<T>().ToList();
+            }
+
+            return items;
+        }
     }
 }
