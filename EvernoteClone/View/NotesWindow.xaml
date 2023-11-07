@@ -39,7 +39,7 @@
             </ToolBar>
         </ToolBarTray>
         <Grid>
-            
+            <RichTextBox x:Name="contentRichTextBox"/>
         </Grid>
     </DockPanel>
 </Window>
