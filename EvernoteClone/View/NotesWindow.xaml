@@ -25,6 +25,9 @@
         <ListView DockPanel.Dock="Left" Width="140">
 
         </ListView>
+        <ToolBarTray DockPanel.Dock="Top">
+            
+        </ToolBarTray>
         <Grid>
             
         </Grid>
