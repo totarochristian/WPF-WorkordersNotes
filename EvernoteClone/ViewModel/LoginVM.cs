@@ -19,5 +19,10 @@ namespace EvernoteClone.ViewModel
 		}
 
 		public RegisterCommand RegisterCommand { get; set; }
+
+		public LoginVM()
+		{
+			RegisterCommand = new RegisterCommand(this);
+		}
 	}
 }
