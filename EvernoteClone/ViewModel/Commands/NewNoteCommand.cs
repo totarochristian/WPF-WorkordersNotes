@@ -24,8 +24,7 @@ namespace EvernoteClone.ViewModel.Commands
             Notebook selectedNotebook = parameter as Notebook;
             if(selectedNotebook != null)
                 return true;
-            else
-                return false;
+            return false;
         }
 
         public void Execute(object? parameter)
