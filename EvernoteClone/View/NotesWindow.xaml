@@ -7,6 +7,9 @@
         xmlns:vw="clr-namespace:EvernoteClone.ViewModel"
         mc:Ignorable="d"
         Title="NotesWindow" Height="300" Width="300">
+    <Window.Resources>
+        <vw:NotesVM x:Key="viewModel"/>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
