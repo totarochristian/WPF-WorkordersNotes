@@ -12,6 +12,7 @@
                 <MenuItem Header="New notebook"/>
                 <MenuItem Header="New note"/>
                 <Separator />
+                <MenuItem Header="Exit"/>
             </MenuItem>
         </Menu>
         <Grid>
