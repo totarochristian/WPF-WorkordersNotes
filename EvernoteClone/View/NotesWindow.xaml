@@ -22,7 +22,7 @@
         <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}">
             
         </ListView>
-        <ListView DockPanel.Dock="Left" Width="140">
+        <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notes}">
 
         </ListView>
         <ToolBarTray DockPanel.Dock="Top">
