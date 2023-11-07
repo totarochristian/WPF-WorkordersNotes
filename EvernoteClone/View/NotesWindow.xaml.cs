@@ -95,7 +95,7 @@ namespace EvernoteClone.View
                 contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
             else
                 //Set the text decoration of the selected text to normal
-                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
         }
 
         private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -108,12 +108,12 @@ namespace EvernoteClone.View
             //Retrieve the font style property of the selected text in the content rich text box
             var selecteItalic = contentRichTextBox.Selection.GetPropertyValue(Inline.FontStyleProperty);
             //Check if the selected italic isn't unset and is italic, if true, check the italic toggle button
-            boldButton.IsChecked = selecteItalic != DependencyProperty.UnsetValue && selecteItalic.Equals(FontStyles.Italic);
+            italicButton.IsChecked = selecteItalic != DependencyProperty.UnsetValue && selecteItalic.Equals(FontStyles.Italic);
 
             //Retrieve the text decoration property of the selected text in the content rich text box
             var selectedUnderline = contentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             //Check if the selected weight isn't unset and is underline, if true, check the underline toggle button
-            boldButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
+            underlineButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
         }
     }
 }
