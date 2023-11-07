@@ -27,7 +27,7 @@
         </ListView>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Speech"/>
+                <Button Content="Speech" Click="SpeechButton_Click"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>

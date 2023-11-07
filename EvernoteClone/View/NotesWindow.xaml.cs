@@ -29,5 +29,10 @@ namespace EvernoteClone.View
             //Close the current application
             Application.Current.Shutdown();
         }
+
+        private void SpeechButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: speech button
+        }
     }
 }
