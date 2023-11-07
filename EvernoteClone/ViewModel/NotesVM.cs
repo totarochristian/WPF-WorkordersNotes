@@ -78,5 +78,22 @@ namespace EvernoteClone.ViewModel
 				Notebooks.Add(notebook);
 			}
 		}
-	}
+
+        private void GetNotes()
+        {
+			//If there is a selected notebook
+			if(SelectedNotebook != null)
+			{
+                //Read notes from the database that are related to the notebook selected
+                var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+                //Clear the collection
+                Notebooks.Clear();
+                //Add the notes readed in the collection
+                foreach (var note in notes)
+                {
+                    Notes.Add(note);
+                }
+            }
+        }
+    }
 }
