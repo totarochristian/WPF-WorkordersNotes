@@ -45,7 +45,7 @@
             </ToolBar>
         </ToolBarTray>
         <Grid>
-            <RichTextBox x:Name="contentRichTextBox" TextChanged="contentRichTextBox_TextChanged"/>
+            <RichTextBox x:Name="contentRichTextBox" TextChanged="contentRichTextBox_TextChanged" SelectionChanged="contentRichTextBox_SelectionChanged"/>
         </Grid>
     </DockPanel>
 </Window>

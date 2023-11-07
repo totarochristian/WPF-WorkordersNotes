@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -63,8 +64,19 @@ namespace EvernoteClone.View
 
         private void BoldButton_Click(object sender, RoutedEventArgs e)
         {
-            //Set the font weight of the selected text to bold
-            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            //IsChecked is a bool?, using ?? will evaluate the value of the property and if is null, set false
+            bool isButtonCheched = (sender as ToggleButton).IsChecked ?? false;
+            if(isButtonCheched)
+                //Set the font weight of the selected text to bold
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            else
+                //Set the font weight of the selected text to normal
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
+        }
+
+        private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
