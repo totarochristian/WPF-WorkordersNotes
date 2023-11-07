@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:EvernoteClone.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="{Binding Title}" Foreground="White" Margin="15" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+    <StackPanel>
+        <TextBlock Text="{Binding Title}" Foreground="Black" Margin="15" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBlock Text="{Binding UpdatedAt}" Foreground="DodgerBlue" Margin="15" FontSize="15" VerticalAlignment="Center"/>
-    </Grid>
+    </StackPanel>
 </UserControl>
