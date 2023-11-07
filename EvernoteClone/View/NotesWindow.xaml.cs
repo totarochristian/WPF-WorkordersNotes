@@ -113,6 +113,22 @@ namespace EvernoteClone.View
             }
         }
 
+        private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //If user selected an item
+            if (fontFamilyComboBox.SelectedItem != null)
+            {
+                //Set the font family of the selected text to the font family selected by the user in the relative combo box
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, fontFamilyComboBox.SelectedItem);
+            }
+        }
+
+        private void FontSizesComboBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //Set the font size of the selected text to the font size selected by the user in the relative combo box
+            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontSizesComboBox.SelectedItem);
+        }
+
         private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             //Retrieve the font weight property of the selected text in the content rich text box
@@ -129,22 +145,6 @@ namespace EvernoteClone.View
             var selectedUnderline = contentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             //Check if the selected weight isn't unset and is underline, if true, check the underline toggle button
             underlineButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
-        }
-
-        private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //If user selected an item
-            if(fontFamilyComboBox.SelectedItem != null)
-            {
-                //Set the font family of the selected text to the font family selected by the user in the relative combo box
-                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, fontFamilyComboBox.SelectedItem);
-            }
-        }
-
-        private void FontSizesComboBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //Set the font size of the selected text to the font size selected by the user in the relative combo box
-            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontSizesComboBox.SelectedItem);
-        }
+        } 
     }
 }
