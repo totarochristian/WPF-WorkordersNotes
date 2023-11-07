@@ -19,8 +19,8 @@
                 <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
         </Menu>
-        <Grid>
+        <ListView DockPanel.Dock="Left">
             
-        </Grid>
+        </ListView>
     </DockPanel>
 </Window>
