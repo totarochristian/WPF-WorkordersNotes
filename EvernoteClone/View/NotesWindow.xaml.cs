@@ -23,5 +23,11 @@ namespace EvernoteClone.View
         {
             InitializeComponent();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            //Close the current application
+            Application.Current.Shutdown();
+        }
     }
 }
