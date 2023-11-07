@@ -126,7 +126,7 @@ namespace EvernoteClone.View
 
         }
 
-        private void fontSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void FontSizeComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
