@@ -11,6 +11,7 @@
             <MenuItem Header="File">
                 <MenuItem Header="New notebook"/>
                 <MenuItem Header="New note"/>
+                <Separator />
             </MenuItem>
         </Menu>
         <Grid>
