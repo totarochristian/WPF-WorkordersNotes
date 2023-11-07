@@ -94,8 +94,13 @@ namespace EvernoteClone.View
                 //Set the text decoration of the selected text to underline
                 contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
             else
-                //Set the text decoration of the selected text to normal
-                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+            {
+                TextDecorationCollection textDecorations;
+                //Try to remove the underline text decoration from the selection and out the result in the text decorations collection
+                (contentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty) as TextDecorationCollection).TryRemove(TextDecorations.Underline, out textDecorations);
+                //Set the text decoration collection remove from the underline decoration to the selected text
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, textDecorations);
+            }
         }
 
         private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
