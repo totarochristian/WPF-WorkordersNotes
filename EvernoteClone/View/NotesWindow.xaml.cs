@@ -145,6 +145,14 @@ namespace EvernoteClone.View
             var selectedUnderline = contentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             //Check if the selected weight isn't unset and is underline, if true, check the underline toggle button
             underlineButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
+
+            //Retrieve the font family property of the selected text in the content rich text box, then save as selected item of font family combo box
+            var selectedFontFamily = contentRichTextBox.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+            fontFamilyComboBox.SelectedItem = selectedFontFamily;
+
+            //Retrieve the font size property of the selected text in the content rich text box, then save in the text of font size combo box
+            var selectedFontSize = contentRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
+            fontSizesComboBox.Text = selectedFontSize.ToString();
         } 
     }
 }
