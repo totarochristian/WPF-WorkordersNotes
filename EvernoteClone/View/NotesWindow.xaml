@@ -36,7 +36,7 @@
         <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title}" />
+                    <uc:DisplayNote Note="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
