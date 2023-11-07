@@ -25,7 +25,8 @@
                 <TextBlock x:Name="statusTextBlock" />
             </StatusBarItem>
         </StatusBar>
-        <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" Background="MidnightBlue"
+                  SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <uc:DisplayNotebook Notebook="{Binding}" />
