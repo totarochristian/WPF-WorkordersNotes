@@ -76,7 +76,10 @@ namespace EvernoteClone.View
 
         private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            //Retrieve the font weight property of the selected text in the content rich text box
+            var selectedWeight = contentRichTextBox.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            //Check if the selected weight is bold, if true, check the bold toggle button
+            boldButton.IsChecked = selectedWeight.Equals(FontWeights.Bold);
         }
     }
 }
