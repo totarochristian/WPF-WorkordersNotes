@@ -1,4 +1,5 @@
 ﻿using EvernoteClone.Model;
+using EvernoteClone.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace EvernoteClone.ViewModel
 			set { user = value; }
 		}
 
+		public RegisterCommand RegisterCommand { get; set; }
 	}
 }
