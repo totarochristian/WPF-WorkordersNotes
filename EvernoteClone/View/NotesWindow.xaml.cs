@@ -133,7 +133,12 @@ namespace EvernoteClone.View
 
         private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //If user selected an item
+            if(fontFamilyComboBox.SelectedItem != null)
+            {
+                //Set the font family of the selected text to the font family selected by the user in the relative combo box
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, fontFamilyComboBox.SelectedItem);
+            }
         }
 
         private void FontSizesComboBox_TextChanged(object sender, TextChangedEventArgs e)
