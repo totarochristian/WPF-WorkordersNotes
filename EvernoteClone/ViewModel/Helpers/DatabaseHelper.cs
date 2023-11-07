@@ -35,5 +35,29 @@ namespace EvernoteClone.ViewModel.Helpers
 
             return result;
         }
+
+        /// <summary>
+        /// Method that will update a generic type of object in a generic table of the database.
+        /// </summary>
+        /// <typeparam name="T">Type of the object to be updated in the database</typeparam>
+        /// <param name="item">Object to be updated in the database</param>
+        /// <returns></returns>
+        public static bool Update<T>(T item)
+        {
+            bool result = false;
+
+            //Connect to the database
+            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            {
+                //Create a generic table in the database, if not exists
+                conn.CreateTable<T>();
+                //Update the item in the database and save the rows affected
+                int rows = conn.Update(item);
+                //If the number of rows affected is greater then 0, set result to true, otherwise false
+                result = rows > 0;
+            }
+
+            return result;
+        }
     }
 }
