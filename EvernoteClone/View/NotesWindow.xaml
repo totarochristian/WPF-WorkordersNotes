@@ -19,6 +19,9 @@
                 <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
         </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+
+        </StatusBar>
         <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -41,8 +44,5 @@
         <Grid>
             <RichTextBox x:Name="contentRichTextBox" TextChanged="contentRichTextBox_TextChanged"/>
         </Grid>
-        <StatusBar DockPanel.Dock="Bottom">
-            
-        </StatusBar>
     </DockPanel>
 </Window>
