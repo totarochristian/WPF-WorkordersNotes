@@ -143,7 +143,8 @@ namespace EvernoteClone.View
 
         private void FontSizesComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Set the font size of the selected text to the font size selected by the user in the relative combo box
+            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontSizesComboBox.SelectedItem);
         }
     }
 }
