@@ -74,12 +74,46 @@ namespace EvernoteClone.View
                 contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
         }
 
+        private void ItalicButton_Click(object sender, RoutedEventArgs e)
+        {
+            //IsChecked is a bool?, using ?? will evaluate the value of the property and if is null, set false
+            bool isButtonCheched = (sender as ToggleButton).IsChecked ?? false;
+            if (isButtonCheched)
+                //Set the font style of the selected text to italic
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Italic);
+            else
+                //Set the font style of the selected text to italic
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Normal);
+        }
+
+        private void UnderlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            //IsChecked is a bool?, using ?? will evaluate the value of the property and if is null, set false
+            bool isButtonCheched = (sender as ToggleButton).IsChecked ?? false;
+            if (isButtonCheched)
+                //Set the text decoration of the selected text to underline
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+            else
+                //Set the text decoration of the selected text to normal
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+        }
+
         private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             //Retrieve the font weight property of the selected text in the content rich text box
             var selectedWeight = contentRichTextBox.Selection.GetPropertyValue(Inline.FontWeightProperty);
             //Check if the selected weight isn't unset and is bold, if true, check the bold toggle button
             boldButton.IsChecked = selectedWeight != DependencyProperty.UnsetValue && selectedWeight.Equals(FontWeights.Bold);
+
+            //Retrieve the font style property of the selected text in the content rich text box
+            var selecteItalic = contentRichTextBox.Selection.GetPropertyValue(Inline.FontStyleProperty);
+            //Check if the selected italic isn't unset and is italic, if true, check the italic toggle button
+            boldButton.IsChecked = selecteItalic != DependencyProperty.UnsetValue && selecteItalic.Equals(FontStyles.Italic);
+
+            //Retrieve the text decoration property of the selected text in the content rich text box
+            var selectedUnderline = contentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            //Check if the selected weight isn't unset and is underline, if true, check the underline toggle button
+            boldButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
         }
     }
 }

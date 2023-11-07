@@ -42,6 +42,10 @@
             <ToolBar>
                 <Button x:Name="speechButton" Content="Speech" Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton" Content="B" FontWeight="Bold" Click="BoldButton_Click"/>
+                <ToggleButton x:Name="italicButton" Content="C" FontWeight="SemiBold" FontStyle="Italic" Click="ItalicButton_Click"/>
+                <ToggleButton x:Name="underlineButton" Click="UnderlineButton_Click">
+                    <TextBlock Text="U" FontWeight="SemiBold" TextDecorations="Underline"/>
+                </ToggleButton>
             </ToolBar>
         </ToolBarTray>
         <Grid>
