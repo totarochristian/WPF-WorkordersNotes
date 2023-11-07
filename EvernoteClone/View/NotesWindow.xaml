@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:EvernoteClone.View"
         mc:Ignorable="d"
         Title="NotesWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            
+        </Menu>
+        <Grid>
+            
+        </Grid>
+    </DockPanel>
 </Window>
