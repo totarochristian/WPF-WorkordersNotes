@@ -33,8 +33,13 @@ namespace EvernoteClone.ViewModel
 
 		public NotesVM()
 		{
+			//Define the commands related to the notes view model
 			NewNotebookCommand = new NewNotebookCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
+
+			//Define initial values inside the collections displayed in the list view
+			Notebooks = new ObservableCollection<Notebook>();
+			Notes = new ObservableCollection<Note>();
 		}
 
 		public void CreateNotebook()
