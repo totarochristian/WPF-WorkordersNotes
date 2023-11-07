@@ -41,5 +41,8 @@
         <Grid>
             <RichTextBox x:Name="contentRichTextBox" TextChanged="contentRichTextBox_TextChanged"/>
         </Grid>
+        <StatusBar DockPanel.Dock="Bottom">
+            
+        </StatusBar>
     </DockPanel>
 </Window>
