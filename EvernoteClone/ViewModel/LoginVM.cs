@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvernoteClone.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,13 @@ namespace EvernoteClone.ViewModel
 {
     public class LoginVM
     {
+		private User user;
 
-    }
+		public User User
+		{
+			get { return user; }
+			set { user = value; }
+		}
+
+	}
 }
