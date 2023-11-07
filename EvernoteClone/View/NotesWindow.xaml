@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EvernoteClone.View"
         xmlns:vw="clr-namespace:EvernoteClone.ViewModel"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="300" Width="300">
+        Title="NotesWindow" Height="450" Width="800">
     <Window.Resources>
         <vw:NotesVM x:Key="vm"/>
     </Window.Resources>
