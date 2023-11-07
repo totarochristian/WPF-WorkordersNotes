@@ -31,6 +31,10 @@ namespace EvernoteClone.View
             //Assign the font families ordered as source of font family combo box
             fontFamilyComboBox.ItemsSource = fontFamilies;
 
+            //Define a basic list of font sizes
+            List<double> fontSizes = new List<double>() { 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32 };
+            //Assign the font sizes defined to the font sizes combo box
+            fontSizesComboBox.ItemsSource = fontSizes;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -132,7 +136,7 @@ namespace EvernoteClone.View
 
         }
 
-        private void FontSizeComboBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void FontSizesComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
