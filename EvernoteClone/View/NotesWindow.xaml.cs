@@ -37,7 +37,10 @@ namespace EvernoteClone.View
 
         private void contentRichTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Retrieve the number of characters conained in the content rich text box
+            int ammountCharacters = (new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd)).Text.Length;
+            //Update the status text block adding the length of the text in the rich text box
+            statusTextBlock.Text = $"Document length: {ammountCharacters} characters";
         }
     }
 }
