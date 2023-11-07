@@ -41,7 +41,7 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Content="Speech" Click="SpeechButton_Click"/>
-                <Button Content="B" FontWeight="Bold" Click="BoldButton_Click"/>
+                <ToggleButton Content="B" FontWeight="Bold" Click="BoldButton_Click"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>
