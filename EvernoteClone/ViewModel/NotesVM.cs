@@ -22,7 +22,8 @@ namespace EvernoteClone.ViewModel
 			set { 
 				selectedNotebook = value;
 
-				//TODO: get notes
+                //Update notes in the collection using the id of the new selected notebook
+                GetNotes();
 			}
 		}
 
