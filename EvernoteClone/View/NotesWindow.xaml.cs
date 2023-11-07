@@ -120,5 +120,10 @@ namespace EvernoteClone.View
             //Check if the selected weight isn't unset and is underline, if true, check the underline toggle button
             underlineButton.IsChecked = selectedUnderline != DependencyProperty.UnsetValue && selectedUnderline.Equals(TextDecorations.Underline);
         }
+
+        private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

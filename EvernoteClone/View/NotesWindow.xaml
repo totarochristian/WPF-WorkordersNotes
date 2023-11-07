@@ -46,6 +46,7 @@
                 <ToggleButton x:Name="underlineButton" Click="UnderlineButton_Click">
                     <TextBlock Text="U" TextDecorations="Underline"/>
                 </ToggleButton>
+                <ComboBox x:Name="fontFamilyComboBox" Width="100" SelectionChanged="FontFamilyComboBox_SelectionChanged"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>
