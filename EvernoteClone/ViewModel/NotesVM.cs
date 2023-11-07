@@ -88,7 +88,7 @@ namespace EvernoteClone.ViewModel
                 //Read notes from the database that are related to the notebook selected
                 var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
                 //Clear the collection
-                Notebooks.Clear();
+                Notes.Clear();
                 //Add the notes readed in the collection
                 foreach (var note in notes)
                 {
