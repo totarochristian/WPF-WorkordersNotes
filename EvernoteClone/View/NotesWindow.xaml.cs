@@ -34,5 +34,10 @@ namespace EvernoteClone.View
         {
             //TODO: speech button
         }
+
+        private void contentRichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
