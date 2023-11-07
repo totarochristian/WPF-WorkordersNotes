@@ -19,7 +19,7 @@
                 <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
         </Menu>
-        <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" SelectedItem="{Binding SelectedNotebook, Mode=TwoWay}">
+        <ListView DockPanel.Dock="Left" Width="140" ItemsSource="{Binding Notebooks}" SelectedValue="{Binding SelectedNotebook, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
