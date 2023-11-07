@@ -20,6 +20,7 @@ namespace EvernoteClone.ViewModel
 			set { 
 				selectedNotebook = value;
 
+				//TODO: get notes
 			}
 		}
 
