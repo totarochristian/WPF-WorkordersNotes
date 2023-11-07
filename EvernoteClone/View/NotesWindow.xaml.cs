@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +32,25 @@ namespace EvernoteClone.View
             Application.Current.Shutdown();
         }
 
-        private void SpeechButton_Click(object sender, RoutedEventArgs e)
+        private async void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: speech button
+            //Define subscription key and region
+            string region = "northeurope";
+            string key = "1e7b37eaa2d24dae9b85b78c7b9135a7";
+            //Retrieve the speech configuration using the subscription key and the region
+            var speechConfig = SpeechConfig.FromSubscription(key, region);
+            //Initialize the audio configuration using the default microphone input
+            using(var audioConfig = AudioConfig.FromDefaultMicrophoneInput())
+            {
+                //Initialize a speech recognizer using the speech configuration, the language and the default microphone audio configuration
+                using (var recognizer = new SpeechRecognizer(speechConfig, "it-IT", audioConfig))
+                {
+                    //Start the recognize of the input for max 30 second or unless the user stop to talk and then return a result
+                    var result = await recognizer.RecognizeOnceAsync();
+                    //Add the text recognized in the content rich text box as a new run of a new paragraph
+                    contentRichTextBox.Document.Blocks.Add(new Paragraph(new Run(result.Text)));
+                }
+            } 
         }
 
         private void contentRichTextBox_TextChanged(object sender, TextChangedEventArgs e)
