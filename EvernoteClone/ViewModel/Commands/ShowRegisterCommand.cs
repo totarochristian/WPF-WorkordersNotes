@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EvernoteClone.ViewModel.Commands
 {
-    class ShowRegisterCommand
+    public class ShowRegisterCommand
     {
     }
 }
