@@ -63,6 +63,8 @@ namespace EvernoteClone.ViewModel
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
+		public event EventHandler SelectedNoteChanged;
+
         public NotesVM()
 		{
 			//Define the commands related to the notes view model
