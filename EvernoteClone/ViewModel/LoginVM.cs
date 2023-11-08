@@ -10,6 +10,7 @@ namespace EvernoteClone.ViewModel
 {
     public class LoginVM
     {
+		private bool isShowingRegister = false;
 		private User user;
 
 		public User User
@@ -25,6 +26,12 @@ namespace EvernoteClone.ViewModel
 		{
 			RegisterCommand = new RegisterCommand(this);
 			LoginCommand = new LoginCommand(this);
+		}
+
+		public void SwitchViews()
+		{
+			//Switch the value
+			isShowingRegister = !isShowingRegister;
 		}
 	}
 }
