@@ -136,7 +136,10 @@ namespace EvernoteClone.ViewModel
 
         public void StopEditing(Notebook notebook)
         {
+			//Hide the text box setting the visibility to collapsed
             IsVisible = Visibility.Collapsed;
+			//Update the notebook passed to the method
+			DatabaseHelper.Update(notebook);
         }
     }
 }
