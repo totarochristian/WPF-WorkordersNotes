@@ -111,7 +111,7 @@ namespace EvernoteClone.ViewModel
             GetNotes();
         }
 
-		private void GetNotebooks()
+		public void GetNotebooks()
 		{
 			//Read notebooks from the database
 			var notebooks = DatabaseHelper.Read<Notebook>();
