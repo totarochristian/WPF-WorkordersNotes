@@ -9,7 +9,13 @@
         Title="LoginWindow" Height="300" Width="300">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline"/>
+            <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
         </StackPanel>
         <StackPanel Visibility="Collapsed">
             
