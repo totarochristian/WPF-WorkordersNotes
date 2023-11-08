@@ -20,7 +20,7 @@ namespace EvernoteClone.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object? parameter)
@@ -30,7 +30,7 @@ namespace EvernoteClone.ViewModel.Commands
             //If the notebook retrieve isn't null
             if(notebook != null)
             {
-                //Cll the stop editing method of VM, updating the casted notebook
+                //Call the stop editing method of VM, updating the casted notebook
                 VM.StopEditing(notebook);
             }
         }
