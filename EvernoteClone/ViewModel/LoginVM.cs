@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static SQLite.SQLite3;
 
 namespace EvernoteClone.ViewModel
 {
@@ -185,13 +186,23 @@ namespace EvernoteClone.ViewModel
 		public async void Login()
 		{
             //Call the Login method of the firebase auth helper class passing the user data binded in the login stack panel
-            await FirebaseAuthHelper.Login(User);
+            bool result = await FirebaseAuthHelper.Login(User);
+            //If login is done correctly, close the dialog
+            if(result)
+            {
+                
+            }
         }
 
         public async void Register()
         {
             //Call the Register method of the firebase auth helper class passing the user data binded in the register stack panel
-            await FirebaseAuthHelper.Register(User);
+            bool result = await FirebaseAuthHelper.Register(User);
+            //If register is done correctly, close the dialog
+            if (result)
+            {
+
+            }
         }
 
         private void OnPropertyChanged(string propertyName)
