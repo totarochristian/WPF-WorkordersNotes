@@ -35,6 +35,8 @@ namespace EvernoteClone.ViewModel
 
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
+		public EditCommand EditCommand { get; set; }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -43,6 +45,7 @@ namespace EvernoteClone.ViewModel
 			//Define the commands related to the notes view model
 			NewNotebookCommand = new NewNotebookCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
+			EditCommand = new EditCommand(this);
 
 			//Define initial values inside the collections displayed in the list view
 			Notebooks = new ObservableCollection<Notebook>();
