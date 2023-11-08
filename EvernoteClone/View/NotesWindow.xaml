@@ -37,6 +37,7 @@
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
+                        <TextBox />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
