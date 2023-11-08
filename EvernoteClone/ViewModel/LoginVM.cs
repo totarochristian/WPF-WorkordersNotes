@@ -157,6 +157,8 @@ namespace EvernoteClone.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public event EventHandler Authenticated;
+
         public RegisterCommand RegisterCommand { get; set; }
 		public LoginCommand LoginCommand { get; set; }
 		public ShowRegisterCommand ShowRegisterCommand { get; set; }
@@ -187,10 +189,10 @@ namespace EvernoteClone.ViewModel
 		{
             //Call the Login method of the firebase auth helper class passing the user data binded in the login stack panel
             bool result = await FirebaseAuthHelper.Login(User);
-            //If login is done correctly, close the dialog
+            //If login is done correctly, invoke the authenticated event (generally will close the login dialog)
             if(result)
             {
-                
+                Authenticated?.Invoke(this, new EventArgs());
             }
         }
 
@@ -198,10 +200,10 @@ namespace EvernoteClone.ViewModel
         {
             //Call the Register method of the firebase auth helper class passing the user data binded in the register stack panel
             bool result = await FirebaseAuthHelper.Register(User);
-            //If register is done correctly, close the dialog
+            //If register is done correctly, invoke the authenticated event (generally will close the login dialog)
             if (result)
             {
-
+                Authenticated?.Invoke(this, new EventArgs());
             }
         }
 
