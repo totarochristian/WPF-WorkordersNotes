@@ -126,7 +126,7 @@ namespace EvernoteClone.ViewModel
 
 		public void StartEditing()
 		{
-			//TODO: start editing to true to enable the visibility of text box
+			IsVisible = Visibility.Visible;
 		}
     }
 }
