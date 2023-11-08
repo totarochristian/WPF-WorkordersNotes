@@ -1,5 +1,6 @@
 ﻿using EvernoteClone.Model;
 using EvernoteClone.ViewModel.Commands;
+using EvernoteClone.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -188,7 +189,8 @@ namespace EvernoteClone.ViewModel
 
         public void Register()
         {
-            //TODO: register functionality
+            //Call the Register method of the firebase auth helper class passing the user data binded in the register stack panel
+            FirebaseAuthHelper.Register(User);
         }
 
         private void OnPropertyChanged(string propertyName)
