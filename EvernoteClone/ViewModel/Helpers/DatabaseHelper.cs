@@ -112,18 +112,20 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns>List with a generic type of object</returns>
         public static List<T> Read<T>() where T : new()
         {
-            List<T> items;
+            //List<T> items;
 
-            //Connect to the database
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            {
-                //Create a generic table in the database, if not exists
-                conn.CreateTable<T>();
-                //Retrieve the content of the generic table in a querable interface, convert it to a list and save in items
-                items = conn.Table<T>().ToList();
-            }
+            ////Connect to the database
+            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //{
+            //    //Create a generic table in the database, if not exists
+            //    conn.CreateTable<T>();
+            //    //Retrieve the content of the generic table in a querable interface, convert it to a list and save in items
+            //    items = conn.Table<T>().ToList();
+            //}
 
-            return items;
+            //return items;
+
+
         }
     }
 }
