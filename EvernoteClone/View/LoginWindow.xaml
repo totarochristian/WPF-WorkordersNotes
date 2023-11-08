@@ -5,20 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:EvernoteClone.View"
+        xmlns:vm="clr-namespace:EvernoteClone.ViewModel"
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="300">
-    <Grid>
-        <StackPanel>
+    <Window.Resources>
+        <ResourceDictionary>
+            <vm:LoginVM x:Key="vm"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource vm}">
+        <StackPanel Visibility="{Binding LoginVisibility}">
             <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
-                        <i:InvokeCommandAction />
+                        <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBlock>
         </StackPanel>
-        <StackPanel Visibility="Collapsed">
-            
+        <StackPanel Visibility="{Binding RegisterVisibility}">
+            <TextBlock Text="Login" Foreground="DodgerBlue" TextDecorations="Underline">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>
