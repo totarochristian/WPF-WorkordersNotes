@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="LoginWindow" Height="300" Width="300">
+        Title="LoginWindow" Height="300" Width="300" BorderThickness="1,1,1,1">
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
