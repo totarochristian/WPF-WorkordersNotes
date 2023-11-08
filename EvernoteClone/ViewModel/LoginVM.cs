@@ -71,7 +71,17 @@ namespace EvernoteClone.ViewModel
             RegisterVisibility = isShowingRegister ? Visibility.Visible : Visibility.Collapsed;
         }
 
-		private void OnPropertyChanged(string propertyName)
+		public void Login()
+		{
+			//TODO: login functionality
+		}
+
+        public void Register()
+        {
+            //TODO: register functionality
+        }
+
+        private void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
