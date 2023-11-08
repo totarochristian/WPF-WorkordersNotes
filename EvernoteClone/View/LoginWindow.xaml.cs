@@ -39,7 +39,8 @@ namespace EvernoteClone.View
 
         private void ViewModel_Authenticated(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //Close the dialog (this happen when will be invoked the authenticated event in the login view model, so when user login or register)
+            this.Close();
         }
     }
 }
