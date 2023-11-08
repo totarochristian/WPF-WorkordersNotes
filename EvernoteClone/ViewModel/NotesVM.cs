@@ -48,6 +48,7 @@ namespace EvernoteClone.ViewModel
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
+		public EndEditingCommand EndEditingCommand { get; set; }
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
