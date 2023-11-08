@@ -22,10 +22,8 @@ namespace EvernoteClone.ViewModel
 			get { return selectedNotebook; }
 			set { 
 				selectedNotebook = value;
-
 				//Call the event to change the selected notebook in the list view
 				OnPropertyChanged("SelectedNotebook");
-
                 //Update notes in the collection using the id of the new selected notebook
                 GetNotes();
 			}
@@ -38,7 +36,9 @@ namespace EvernoteClone.ViewModel
 			get { return selectedNote; }
 			set { 
 				selectedNote = value;
-			}
+                //Call the event to change the selected note in the list view
+                OnPropertyChanged("SelectedNote");
+            }
 		}
 
 
