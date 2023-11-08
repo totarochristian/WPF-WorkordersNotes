@@ -8,6 +8,8 @@ namespace EvernoteClone.ViewModel.Helpers
 {
     public class FirebaseAuthHelper
     {
-        private const string api_key = "AIzaSyDCViISbSPykopxo4RFARdVeLJLcApIS0M";
+        private static string api_key = "AIzaSyDCViISbSPykopxo4RFARdVeLJLcApIS0M";
+
+
     }
 }
