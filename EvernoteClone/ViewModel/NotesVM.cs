@@ -38,6 +38,8 @@ namespace EvernoteClone.ViewModel
 				selectedNote = value;
                 //Call the event to change the selected note in the list view
                 OnPropertyChanged("SelectedNote");
+				//Invoke the selected note changed event
+				SelectedNoteChanged?.Invoke(this, new EventArgs());
             }
 		}
 
