@@ -56,6 +56,7 @@ namespace EvernoteClone.ViewModel
 			//Define initial values inside the collections displayed in the list view
 			Notebooks = new ObservableCollection<Notebook>();
 			Notes = new ObservableCollection<Note>();
+			IsVisible = Visibility.Collapsed;
 
 			//Update notebooks in the collection adding the values saved previously in the database
 			GetNotebooks();
