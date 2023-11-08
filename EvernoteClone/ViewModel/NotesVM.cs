@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EvernoteClone.ViewModel
 {
@@ -38,7 +39,15 @@ namespace EvernoteClone.ViewModel
 		public EditCommand EditCommand { get; set; }
 
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+		private Visibility isVisible;
+
+		public Visibility IsVisible
+		{
+			get { return isVisible; }
+			set { isVisible = value; }
+		}
+
+		public event PropertyChangedEventHandler? PropertyChanged;
 
         public NotesVM()
 		{
