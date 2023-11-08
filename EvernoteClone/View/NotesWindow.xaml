@@ -38,7 +38,15 @@
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
-                        <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}"/>
+                        <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="LostFocus">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}" 
+                                        CommandParameter="{Binding}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
