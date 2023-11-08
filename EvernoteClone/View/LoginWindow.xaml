@@ -8,7 +8,7 @@
         Title="LoginWindow" Height="300" Width="300">
     <Grid>
         <StackPanel>
-            
+            <Button Content="Register" />
         </StackPanel>
         <StackPanel Visibility="Collapsed">
             
