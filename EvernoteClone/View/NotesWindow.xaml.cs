@@ -1,4 +1,5 @@
-﻿using Microsoft.CognitiveServices.Speech;
+﻿using EvernoteClone.ViewModel;
+using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,14 @@ namespace EvernoteClone.View
     /// </summary>
     public partial class NotesWindow : Window
     {
+        NotesVM viewModel;
+
         public NotesWindow()
         {
             InitializeComponent();
+
+            //Initialize the viem model equals to the notes view model defined in the resources of the window
+            viewModel = Resources["vm"] as NotesVM;
 
             //Retrieve the system font families ordered by the name (source)
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
