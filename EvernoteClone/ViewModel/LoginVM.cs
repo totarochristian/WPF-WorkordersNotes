@@ -26,24 +26,24 @@ namespace EvernoteClone.ViewModel
             }
 		}
 
-        private string username;
-        public string Username
+        private string email;
+        public string Email
         {
-            get { return username; }
+            get { return email; }
             set
             {
-                username = value;
+                email = value;
                 //Re-define the user
                 User = new User()
                 {
-                    Username = username,
+                    Email = email,
                     Name = this.name,
                     Lastname = this.lastname,
                     Password = this.password,
                     ConfirmPassword = this.ConfirmPassword
                 };
-                //Call the event to change the Username assigned
-                OnPropertyChanged("Username");
+                //Call the event to change the Email assigned
+                OnPropertyChanged("Email");
             }
         }
 
@@ -57,7 +57,7 @@ namespace EvernoteClone.ViewModel
                 //Re-define the user
                 User = new User()
                 {
-                    Username = this.username,
+                    Email = this.email,
                     Name = name,
                     Lastname = this.lastname,
                     Password = this.password,
@@ -78,7 +78,7 @@ namespace EvernoteClone.ViewModel
                 //Re-define the user
                 User = new User()
                 {
-                    Username = this.username,
+                    Email = this.email,
                     Name = this.name,
                     Lastname = lastname,
                     Password = this.password,
@@ -99,7 +99,7 @@ namespace EvernoteClone.ViewModel
                 //Re-define the user
                 User = new User()
                 {
-                    Username = this.username,
+                    Email = this.email,
                     Name = this.name,
                     Lastname = this.lastname,
                     Password = password,
@@ -120,7 +120,7 @@ namespace EvernoteClone.ViewModel
                 //Re-define the user
                 User = new User()
                 {
-                    Username = this.username,
+                    Email = this.email,
                     Name = this.name,
                     Lastname = this.lastname,
                     Password = this.password,

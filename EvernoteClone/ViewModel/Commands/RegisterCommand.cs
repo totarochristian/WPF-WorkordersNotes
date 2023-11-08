@@ -28,8 +28,8 @@ namespace EvernoteClone.ViewModel.Commands
             //If user is null, return false
             if (user == null)
                 return false;
-            //If username is null or empty, return false
-            if (string.IsNullOrEmpty(user.Username))
+            //If email is null or empty, return false
+            if (string.IsNullOrEmpty(user.Email))
                 return false;
             //If password or confirm password is null or empty, return false
             if (string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.ConfirmPassword))

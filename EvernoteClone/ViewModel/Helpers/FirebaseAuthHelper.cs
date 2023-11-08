@@ -20,10 +20,10 @@ namespace EvernoteClone.ViewModel.Helpers
             //Init a new http client because this API use REST calls
             using (HttpClient client = new HttpClient())
             {
-                //Create a new anonimous object with username, password and a bool called returnSecureToken (mandatory)
+                //Create a new anonimous object with email, password and a bool called returnSecureToken (mandatory)
                 var body = new
                 {
-                    email = user.Username,
+                    email = user.Email,
                     password = user.Password,
                     returnSecureToken = true
                 };
