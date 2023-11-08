@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvernoteClone.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace EvernoteClone.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        LoginVM viewModel;
+
         public LoginWindow()
         {
             InitializeComponent();
+
+            //Retrieve the login view model from the resources instantiated in the window
+            viewModel = Resources["vm"] as LoginVM;
 
             //Set the owner of the window
             Owner = Application.Current.MainWindow;
