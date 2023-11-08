@@ -29,13 +29,15 @@
                   SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNotebook Notebook="{Binding}">
-                        <uc:DisplayNotebook.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="Rename"/>
-                            </ContextMenu>
-                        </uc:DisplayNotebook.ContextMenu>
-                    </uc:DisplayNotebook>
+                    <Grid>
+                        <uc:DisplayNotebook Notebook="{Binding}">
+                            <uc:DisplayNotebook.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename"/>
+                                </ContextMenu>
+                            </uc:DisplayNotebook.ContextMenu>
+                        </uc:DisplayNotebook>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
