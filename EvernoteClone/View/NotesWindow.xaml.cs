@@ -47,6 +47,19 @@ namespace EvernoteClone.View
             fontSizesComboBox.ItemsSource = fontSizes;
         }
 
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+
+            //If no user logged in
+            if(string.IsNullOrEmpty(App.UserId))
+            {
+                //Show the login window as dialog (so the user couldn't user the notes window)
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+            }
+        }
+
         private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
         {
             //Clear the content rich text box before all the operations (if the selected note is empty or haven't a file, thiss will correctly clear the writing space)
