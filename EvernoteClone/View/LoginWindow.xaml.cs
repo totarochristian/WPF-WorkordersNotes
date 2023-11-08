@@ -22,6 +22,11 @@ namespace EvernoteClone.View
         public LoginWindow()
         {
             InitializeComponent();
+
+            //Set the owner of the window
+            Owner = Application.Current.MainWindow;
+            //Set the startup location equals to the center of the owner
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
     }
 }
