@@ -113,5 +113,10 @@ namespace EvernoteClone.ViewModel
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+
+		public void StartEditing()
+		{
+			//TODO: start editing to true to enable the visibility of text box
+		}
     }
 }
