@@ -49,6 +49,9 @@ namespace EvernoteClone.View
 
         private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
         {
+            //Clear the content rich text box before all the operations (if the selected note is empty or haven't a file, thiss will correctly clear the writing space)
+            contentRichTextBox.Document.Blocks.Clear();
+
             //If the selected note isn't null
             if(viewModel.SelectedNote != null)
             {
@@ -63,8 +66,6 @@ namespace EvernoteClone.View
                     contents.Load(fileStream, DataFormats.Rtf);
                 }
             }
-            
-            
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
