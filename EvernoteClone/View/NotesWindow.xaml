@@ -68,6 +68,7 @@
                 </ToggleButton>
                 <ComboBox x:Name="fontFamilyComboBox" Width="100" SelectionChanged="FontFamilyComboBox_SelectionChanged"/>
                 <ComboBox x:Name="fontSizesComboBox" Width="50" IsEditable="True" TextBoxBase.TextChanged="FontSizesComboBox_TextChanged"/>
+                <Button x:Name="saveButton" Content="Save" Click="SaveButton_Click"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>

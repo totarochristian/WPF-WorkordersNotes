@@ -153,6 +153,11 @@ namespace EvernoteClone.View
             //Retrieve the font size property of the selected text in the content rich text box, then save in the text of font size combo box
             var selectedFontSize = contentRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
             fontSizesComboBox.Text = selectedFontSize.ToString();
-        } 
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
