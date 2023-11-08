@@ -1,8 +1,10 @@
 ﻿using EvernoteClone.ViewModel;
+using EvernoteClone.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -163,7 +165,18 @@ namespace EvernoteClone.View
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //Define the name of the rtf file to save (use the id of the selected note and the current directory)
+            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
+            //Assign the new file location inside the selected note data
+            viewModel.SelectedNote.FileLocation = rtfFile;
+            //Update the selected note in the local database
+            DatabaseHelper.Update(viewModel.SelectedNote);
+            //Define a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
+            FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
+            //Retrieve the content to be saved in the file from the content rich text box
+            var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
+            //Save the content in rtf format using the file stream
+            contents.Save(fileStream, DataFormats.Rtf);
         }
     }
 }
