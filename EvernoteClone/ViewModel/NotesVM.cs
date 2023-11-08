@@ -133,5 +133,10 @@ namespace EvernoteClone.ViewModel
 		{
 			IsVisible = Visibility.Visible;
 		}
+
+        public void StopEditing()
+        {
+            IsVisible = Visibility.Collapsed;
+        }
     }
 }
