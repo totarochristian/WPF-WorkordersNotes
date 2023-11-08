@@ -13,15 +13,124 @@ namespace EvernoteClone.ViewModel
     public class LoginVM : INotifyPropertyChanged
     {
 		private bool isShowingRegister = false;
-		private User user;
 
+		private User user;
 		public User User
 		{
 			get { return user; }
-			set { user = value; }
+			set { 
+				user = value;
+                //Call the event to change the user assigned
+                OnPropertyChanged("User");
+            }
 		}
 
-		private Visibility loginVisibility;
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                username = value;
+                //Re-define the user
+                User = new User()
+                {
+                    Username = username,
+                    Name = this.name,
+                    Lastname = this.lastname,
+                    Password = this.password,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                //Call the event to change the Username assigned
+                OnPropertyChanged("Username");
+            }
+        }
+
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                //Re-define the user
+                User = new User()
+                {
+                    Username = this.username,
+                    Name = name,
+                    Lastname = this.lastname,
+                    Password = this.password,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                //Call the event to change the Name assigned
+                OnPropertyChanged("Name");
+            }
+        }
+
+        private string lastname;
+        public string Lastname
+        {
+            get { return lastname; }
+            set
+            {
+                lastname = value;
+                //Re-define the user
+                User = new User()
+                {
+                    Username = this.username,
+                    Name = this.name,
+                    Lastname = lastname,
+                    Password = this.password,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                //Call the event to change the Lastname assigned
+                OnPropertyChanged("Lastname");
+            }
+        }
+
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                //Re-define the user
+                User = new User()
+                {
+                    Username = this.username,
+                    Name = this.name,
+                    Lastname = this.lastname,
+                    Password = password,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                //Call the event to change the Password assigned
+                OnPropertyChanged("Password");
+            }
+        }
+
+        private string confirmPassword;
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                //Re-define the user
+                User = new User()
+                {
+                    Username = this.username,
+                    Name = this.name,
+                    Lastname = this.lastname,
+                    Password = this.password,
+                    ConfirmPassword = ConfirmPassword
+                };
+                //Call the event to change the ConfirmPassword assigned
+                OnPropertyChanged("ConfirmPassword");
+            }
+        }
+
+        private Visibility loginVisibility;
         public Visibility LoginVisibility
 		{
 			get { return loginVisibility; }
@@ -60,6 +169,7 @@ namespace EvernoteClone.ViewModel
             //Define initial values
 			LoginVisibility = Visibility.Visible;
 			RegisterVisibility = Visibility.Collapsed;
+            User = new User();
         }
 
         public void SwitchViews()
