@@ -134,7 +134,7 @@ namespace EvernoteClone.ViewModel
 			IsVisible = Visibility.Visible;
 		}
 
-        public void StopEditing()
+        public void StopEditing(Notebook notebook)
         {
             IsVisible = Visibility.Collapsed;
         }
