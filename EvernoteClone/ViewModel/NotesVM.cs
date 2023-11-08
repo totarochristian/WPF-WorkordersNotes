@@ -31,7 +31,18 @@ namespace EvernoteClone.ViewModel
 			}
 		}
 
-        private Visibility isVisible;
+		private Note selectedNote;
+
+		public Note SelectedNote
+		{
+			get { return selectedNote; }
+			set { 
+				selectedNote = value;
+			}
+		}
+
+
+		private Visibility isVisible;
         public Visibility IsVisible
         {
             get { return isVisible; }
