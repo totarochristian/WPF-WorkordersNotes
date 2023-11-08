@@ -24,7 +24,8 @@ namespace EvernoteClone.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            //TODO: Login functionality
+            //Call the Login method from the user view model
+            VM.Login();
         }
     }
 }
