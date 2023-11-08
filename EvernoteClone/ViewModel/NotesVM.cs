@@ -17,7 +17,6 @@ namespace EvernoteClone.ViewModel
         public ObservableCollection<Notebook> Notebooks { get; set; }
 
 		private Notebook selectedNotebook;
-
         public Notebook SelectedNotebook
 		{
 			get { return selectedNotebook; }
@@ -32,20 +31,18 @@ namespace EvernoteClone.ViewModel
 			}
 		}
 
-		public ObservableCollection<Note> Notes { get; set; }
+        private Visibility isVisible;
+        public Visibility IsVisible
+        {
+            get { return isVisible; }
+            set { isVisible = value; }
+        }
+
+        public ObservableCollection<Note> Notes { get; set; }
 
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
-
-
-		private Visibility isVisible;
-
-		public Visibility IsVisible
-		{
-			get { return isVisible; }
-			set { isVisible = value; }
-		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
