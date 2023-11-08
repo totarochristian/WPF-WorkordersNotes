@@ -140,6 +140,8 @@ namespace EvernoteClone.ViewModel
             IsVisible = Visibility.Collapsed;
 			//Update the notebook passed to the method
 			DatabaseHelper.Update(notebook);
+            //Update notebooks in the collection adding the values saved in the database
+            GetNotebooks();
         }
     }
 }
