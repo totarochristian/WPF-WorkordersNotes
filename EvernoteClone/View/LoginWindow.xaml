@@ -18,9 +18,9 @@
     <Grid DataContext="{StaticResource vm}">
         <StackPanel Visibility="{Binding LoginVisibility}" Margin="10">
             <TextBlock Text="Username:" />
-            <TextBox Text="{Binding User.Username, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Username, Mode=TwoWay}"/>
             <TextBlock Text="Password:" />
-            <TextBox Text="{Binding User.Password, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay}"/>
             <Button Content="Login" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}"/>
             <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
@@ -32,15 +32,15 @@
         </StackPanel>
         <StackPanel Visibility="{Binding RegisterVisibility}" Margin="10">
             <TextBlock Text="Username:" />
-            <TextBox Text="{Binding User.Username, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Username, Mode=TwoWay}"/>
             <TextBlock Text="Name:" />
-            <TextBox Text="{Binding User.Name, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay}"/>
             <TextBlock Text="Last name:" />
-            <TextBox Text="{Binding User.Lastname, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Lastname, Mode=TwoWay}"/>
             <TextBlock Text="Password:" />
-            <TextBox Text="{Binding User.Password, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay}"/>
             <TextBlock Text="Confirm password:" />
-            <TextBox Text="{Binding User.ConfirmPassword, Mode=TwoWay}"/>
+            <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay}"/>
             <Button Content="Register" Margin="0,5" Command="{Binding RegisterCommand}" CommandParameter="{Binding User}"/>
             <TextBlock Text="Login" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
