@@ -182,10 +182,11 @@ namespace EvernoteClone.ViewModel
             RegisterVisibility = isShowingRegister ? Visibility.Visible : Visibility.Collapsed;
         }
 
-		public void Login()
+		public async void Login()
 		{
-			//TODO: login functionality
-		}
+            //Call the Login method of the firebase auth helper class passing the user data binded in the login stack panel
+            await FirebaseAuthHelper.Login(User);
+        }
 
         public async void Register()
         {
