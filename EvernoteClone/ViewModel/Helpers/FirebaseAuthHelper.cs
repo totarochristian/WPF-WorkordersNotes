@@ -74,7 +74,7 @@ namespace EvernoteClone.ViewModel.Helpers
                 //Define the string content using the json string, the utf8 encoding and defining the tipe of content
                 var data = new StringContent(bodyJson, Encoding.UTF8, "application/json");
                 //Send the request via async post to a specific url and retrieve the result response
-                var response = await client.PostAsync($"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={api_key}", data);
+                var response = await client.PostAsync($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={api_key}", data);
                 //If request success
                 if (response.IsSuccessStatusCode)
                 {
