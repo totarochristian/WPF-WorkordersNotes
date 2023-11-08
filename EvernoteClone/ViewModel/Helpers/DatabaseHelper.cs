@@ -11,6 +11,7 @@ namespace EvernoteClone.ViewModel.Helpers
     class DatabaseHelper
     {
         private static string dbFile = Path.Combine(Environment.CurrentDirectory, "notesDb.db3");
+        private static string dbPath = "https://notes-app-wpf-bc58c-default-rtdb.europe-west1.firebasedatabase.app/";
 
         /// <summary>
         /// Method that will insert a generic type of object in a generic table of the database.
