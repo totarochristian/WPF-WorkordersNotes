@@ -33,6 +33,8 @@ namespace EvernoteClone.View
 
             //Initialize the viem model equals to the notes view model defined in the resources of the window
             viewModel = Resources["vm"] as NotesVM;
+            //Assign the method to be called when the selected note changed event will trigger (so when selected ntoe change)
+            viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
 
             //Retrieve the system font families ordered by the name (source)
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -43,6 +45,11 @@ namespace EvernoteClone.View
             List<double> fontSizes = new List<double>() { 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 48, 64, 72 };
             //Assign the font sizes defined to the font sizes combo box
             fontSizesComboBox.ItemsSource = fontSizes;
+        }
+
+        private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
