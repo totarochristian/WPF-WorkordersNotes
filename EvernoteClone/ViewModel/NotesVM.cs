@@ -35,7 +35,12 @@ namespace EvernoteClone.ViewModel
         public Visibility IsVisible
         {
             get { return isVisible; }
-            set { isVisible = value; }
+            set { 
+				isVisible = value;
+
+                //Call the event to change the visibility of the text box in the grid of the notebook element in the list view
+                OnPropertyChanged("IsVisible");
+            }
         }
 
         public ObservableCollection<Note> Notes { get; set; }
