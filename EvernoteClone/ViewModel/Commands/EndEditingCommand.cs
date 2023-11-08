@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvernoteClone.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,14 @@ namespace EvernoteClone.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            //Cast the parameter as Notebook object
+            Notebook notebook = parameter as Notebook;
+            //If the notebook retrieve isn't null
+            if(notebook != null)
+            {
+                //Cll the stop editing method of VM, updating the casted notebook
+                VM.StopEditing(notebook);
+            }
         }
     }
 }
