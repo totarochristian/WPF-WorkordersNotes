@@ -16,7 +16,12 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}">
-        <StackPanel Visibility="{Binding LoginVisibility}">
+        <StackPanel Visibility="{Binding LoginVisibility}" Margin="10">
+            <TextBlock Text="Username:" />
+            <TextBox Text="{Binding User.Username}"/>
+            <TextBlock Text="Password:" />
+            <TextBox Text="{Binding User.Password}"/>
+            <Button Content="Login" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}"/>
             <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -25,7 +30,18 @@
                 </i:Interaction.Triggers>
             </TextBlock>
         </StackPanel>
-        <StackPanel Visibility="{Binding RegisterVisibility}">
+        <StackPanel Visibility="{Binding RegisterVisibility}" Margin="10">
+            <TextBlock Text="Username:" />
+            <TextBox Text="{Binding User.Username}"/>
+            <TextBlock Text="Name:" />
+            <TextBox Text="{Binding User.Name}"/>
+            <TextBlock Text="Last name:" />
+            <TextBox Text="{Binding User.Lastname}"/>
+            <TextBlock Text="Password:" />
+            <TextBox Text="{Binding User.Password}"/>
+            <TextBlock Text="Confirm password:" />
+            <TextBox Text="{Binding User.ConfirmPassword}"/>
+            <Button Content="Register" Margin="0,5" Command="{Binding RegisterCommand}" CommandParameter="{Binding User}"/>
             <TextBlock Text="Login" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
