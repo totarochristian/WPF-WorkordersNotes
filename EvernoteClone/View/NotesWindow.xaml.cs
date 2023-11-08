@@ -57,6 +57,8 @@ namespace EvernoteClone.View
                 //Show the login window as dialog (so the user couldn't user the notes window)
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
+                //After the login teorically the user id has been setted, so could update notebooks in the view model
+                viewModel.GetNotebooks();
             }
         }
 
