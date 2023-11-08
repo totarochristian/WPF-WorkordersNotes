@@ -48,12 +48,14 @@ namespace EvernoteClone.ViewModel
 
         public RegisterCommand RegisterCommand { get; set; }
 		public LoginCommand LoginCommand { get; set; }
+		public ShowRegisterCommand ShowRegisterCommand { get; set; }
 
 		public LoginVM()
 		{
             //Define the commands related to the user view model
             RegisterCommand = new RegisterCommand(this);
 			LoginCommand = new LoginCommand(this);
+			ShowRegisterCommand = new ShowRegisterCommand(this);
 
             //Define initial values
 			LoginVisibility = Visibility.Visible;
