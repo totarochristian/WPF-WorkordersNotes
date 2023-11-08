@@ -114,8 +114,8 @@ namespace EvernoteClone.ViewModel
 
 		public void GetNotebooks()
 		{
-			//Read notebooks from the database
-			var notebooks = DatabaseHelper.Read<Notebook>();
+			//Read notebooks from the database (only the notebooks related to the current user logged)
+			var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId);
 			//Clear the collection
 			Notebooks.Clear();
 			//Add the notebooks readed in the collection
