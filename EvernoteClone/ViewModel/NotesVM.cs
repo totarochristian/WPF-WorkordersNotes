@@ -88,7 +88,8 @@ namespace EvernoteClone.ViewModel
 		{
 			Notebook newNotebook = new Notebook()
 			{
-				Name = "New notebook"
+				Name = "New notebook",
+				UserId = App.UserId
 			};
 			DatabaseHelper.Insert(newNotebook);
 
