@@ -187,10 +187,10 @@ namespace EvernoteClone.ViewModel
 			//TODO: login functionality
 		}
 
-        public void Register()
+        public async void Register()
         {
             //Call the Register method of the firebase auth helper class passing the user data binded in the register stack panel
-            FirebaseAuthHelper.Register(User);
+            await FirebaseAuthHelper.Register(User);
         }
 
         private void OnPropertyChanged(string propertyName)
