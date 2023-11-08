@@ -84,20 +84,20 @@ namespace EvernoteClone.ViewModel
 			GetNotebooks();
 		}
 
-		public void CreateNotebook()
+		public async void CreateNotebook()
 		{
 			Notebook newNotebook = new Notebook()
 			{
 				Name = "New notebook",
 				UserId = App.UserId
 			};
-			DatabaseHelper.Insert(newNotebook);
+			await DatabaseHelper.Insert(newNotebook);
 
             //Update notebooks in the collection adding the values saved in the database
             GetNotebooks();
 		}
 
-		public void CreateNote(int notebookId)
+		public async void CreateNote(int notebookId)
 		{
 			Note newNote = new Note()
 			{
@@ -106,7 +106,7 @@ namespace EvernoteClone.ViewModel
 				UpdatedAt = DateTime.Now,
 				Title = $"Note for {DateTime.Now.ToString("yyyy/MM/dd")}",
 			};
-			DatabaseHelper.Insert(newNote);
+			await DatabaseHelper.Insert(newNote);
 
             //Update notes in the collection adding the values saved in the database
             GetNotes();
