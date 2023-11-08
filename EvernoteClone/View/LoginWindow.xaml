@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EvernoteClone.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="300" Width="300">
     <Grid>
-        
+        <StackPanel>
+            
+        </StackPanel>
+        <StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Window>
