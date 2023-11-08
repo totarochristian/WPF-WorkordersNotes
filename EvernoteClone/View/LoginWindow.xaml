@@ -10,7 +10,7 @@
         <StackPanel>
             
         </StackPanel>
-        <StackPanel>
+        <StackPanel Visibility="Collapsed">
             
         </StackPanel>
     </Grid>
