@@ -13,6 +13,10 @@ namespace EvernoteClone.ViewModel.Commands
 
         public event EventHandler? CanExecuteChanged;
 
+        public EditCommand(NotesVM vm) {
+            VM = vm;
+        }
+
         public bool CanExecute(object? parameter)
         {
             return true;
