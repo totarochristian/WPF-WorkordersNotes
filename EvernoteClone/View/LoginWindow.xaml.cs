@@ -28,11 +28,18 @@ namespace EvernoteClone.View
 
             //Retrieve the login view model from the resources instantiated in the window
             viewModel = Resources["vm"] as LoginVM;
+            //Assign the event to call when the Authenticated event will be invoked
+            viewModel.Authenticated += ViewModel_Authenticated;
 
             //Set the owner of the window
             Owner = Application.Current.MainWindow;
             //Set the startup location equals to the center of the owner
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        }
+
+        private void ViewModel_Authenticated(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
