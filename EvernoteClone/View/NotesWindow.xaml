@@ -51,7 +51,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView DockPanel.Dock="Left" Width="250" ItemsSource="{Binding Notes}">
+        <ListView DockPanel.Dock="Left" Width="250" ItemsSource="{Binding Notes}"
+                  SelectedItem="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <uc:DisplayNote Note="{Binding}"/>
