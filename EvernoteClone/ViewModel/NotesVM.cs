@@ -1,14 +1,17 @@
-﻿using EvernoteClone.Model;
+﻿using Azure.Storage.Blobs;
+using EvernoteClone.Model;
 using EvernoteClone.ViewModel.Commands;
 using EvernoteClone.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace EvernoteClone.ViewModel
 {
@@ -74,9 +77,10 @@ namespace EvernoteClone.ViewModel
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
 		public EndEditingCommand EndEditingCommand { get; set; }
-        public DeleteCommand DeleteCommand { get; set; }
+        public DeleteNotebookCommand DeleteNotebookCommand { get; set; }
+        public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
-		public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
 		public event EventHandler SelectedNoteChanged;
 
@@ -87,10 +91,11 @@ namespace EvernoteClone.ViewModel
 			NewNoteCommand = new NewNoteCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);
-            DeleteCommand = new DeleteCommand(this);
+            DeleteNotebookCommand = new DeleteNotebookCommand(this);
+            DeleteNoteCommand = new DeleteNoteCommand(this);
 
-			//Define initial values inside the collections displayed in the list view
-			Notebooks = new ObservableCollection<Notebook>();
+            //Define initial values inside the collections displayed in the list view
+            Notebooks = new ObservableCollection<Notebook>();
 			Notes = new ObservableCollection<Note>();
 			IsVisibleNotebook = Visibility.Collapsed;
 			IsVisibleNote = Visibility.Collapsed;
@@ -99,7 +104,7 @@ namespace EvernoteClone.ViewModel
 			GetNotebooks();
 		}
 
-		public async void CreateNotebook()
+        public async void CreateNotebook()
 		{
 			Notebook newNotebook = new Notebook()
 			{
@@ -212,20 +217,43 @@ namespace EvernoteClone.ViewModel
             GetNotes();
         }
 
-        public void DeleteNotebook(Notebook notebook)
+        public async void DeleteNotebook(Notebook notebook)
         {
+            //Clear the notes and the notebooks, also the selected items
+            Notes.Clear();
+            Notebooks.Clear();
+            SelectedNote = null;
+            SelectedNotebook = null;
+            //Before delete the notebook, is mandatory delete all the related notes, so retrieve all the notes linked to this notebook
+            List<Note> notes = (await DatabaseHelper.Read<Note>()).Where(n=>n.NotebookId == notebook.Id).ToList();
+            //For each note in the notes list founded, call the DeleteNode method
+            foreach (Note note in notes)
+                DeleteNote(note, false);
             //Delete the notebook passed to the method
             DatabaseHelper.Delete(notebook);
-            //Update notebooks in the collection
+            //Update notebooks list to fill it with updated values
             GetNotebooks();
         }
 
-        public void DeleteNote(Note note)
+        public void DeleteNote(Note note, bool updateNotes)
         {
+            //Clear the notes and the notebooks, also the selected items
+            Notes.Clear();
+            SelectedNote = null;
+            //Delete blob file using the id of the note
+            DeleteBlobFile(note.Id);
             //Delete the note passed to the method
             DatabaseHelper.Delete(note);
-            //Update notes in the collection
-            GetNotes();
+            //If update notes bool is setted
+            if (updateNotes)
+                GetNotes();
+        }
+
+        private void DeleteBlobFile(string id)
+        {
+            BlobServiceClient blobServiceClient = new BlobServiceClient(App.connectionString);
+            BlobContainerClient cont = blobServiceClient.GetBlobContainerClient(App.containerName);
+            cont.GetBlobClient($"{id}.rtf").DeleteIfExists();
         }
     }
 }

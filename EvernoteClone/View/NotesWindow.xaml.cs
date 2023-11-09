@@ -92,11 +92,11 @@ namespace EvernoteClone.View
                         //Load the content in the file stream in the rtf format
                         contents.Load(fileStream, DataFormats.Rtf);
                     }
-                    //Enable the content rich text box if the user select a note
-                    contentRichTextBox.IsEnabled = true;
-                    //Enable the content toolbar if the user don't select a note
-                    contentToolbar.IsEnabled = true;
                 }
+                //Enable the content rich text box if the user select a note
+                contentRichTextBox.IsEnabled = true;
+                //Enable the content toolbar if the user don't select a note
+                contentToolbar.IsEnabled = true;
             }
             else
             {
@@ -255,12 +255,8 @@ namespace EvernoteClone.View
 
         private async Task<string> UpdateFile(string rtfFilePath, string fileName)
         {
-            //Define the connection string (this is in the access key of the azure storage account)
-            string connectionString = "DefaultEndpointsProtocol=https;AccountName=evernotestoragetest;AccountKey=DvMu326ln4lS6ii9tGAoYvuzHAMlhsxBo5ou1eiGg9aiym4X411ebC6tUhlGuXmjkp5myXCFRwUK+AStakRBFw==;EndpointSuffix=core.windows.net";
-            //Define the name of the container defined in the azure storage account
-            string containerName = "notes";
             //Define a new blob container client
-            var container = new BlobContainerClient(connectionString, containerName);
+            var container = new BlobContainerClient(App.connectionString, App.containerName);
             //Create the blob container if not exists
             await container.CreateIfNotExistsAsync(Azure.Storage.Blobs.Models.PublicAccessType.Blob);
             //Get the blob (file) using the name of the file passed
