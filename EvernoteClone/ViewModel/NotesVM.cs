@@ -87,6 +87,7 @@ namespace EvernoteClone.ViewModel
 			NewNoteCommand = new NewNoteCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);
+            DeleteCommand = new DeleteCommand(this);
 
 			//Define initial values inside the collections displayed in the list view
 			Notebooks = new ObservableCollection<Notebook>();
