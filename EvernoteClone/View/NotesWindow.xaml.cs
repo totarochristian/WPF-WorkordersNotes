@@ -1,4 +1,5 @@
-﻿using EvernoteClone.ViewModel;
+﻿using Azure.Storage.Blobs;
+using EvernoteClone.ViewModel;
 using EvernoteClone.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
@@ -205,10 +206,12 @@ namespace EvernoteClone.View
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //Define the name of the rtf file to save (use the id of the selected note and the current directory)
-            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
-            //Assign the new file location inside the selected note data
-            viewModel.SelectedNote.FileLocation = rtfFile;
+            //Define the file name using the id of the selected note
+            string fileName = $"{viewModel.SelectedNote.Id}.rtf";
+            //Define the path of the rtf file to save (use the file name defined and the current directory)
+            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            //Assign the new file location (in the azure storage container) inside the selected note data
+            viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
             //Update the selected note in the local database
             await DatabaseHelper.Update(viewModel.SelectedNote);
             //Define (and use) a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
@@ -219,6 +222,24 @@ namespace EvernoteClone.View
                 //Save the content in rtf format using the file stream
                 contents.Save(fileStream, DataFormats.Rtf);
             }
+        }
+
+        private async Task<string> UpdateFile(string rtfFilePath, string fileName)
+        {
+            //Define the connection string (this is in the access key of the azure storage account)
+            string connectionString = "DefaultEndpointsProtocol=https;AccountName=evernotestoragetest;AccountKey=DvMu326ln4lS6ii9tGAoYvuzHAMlhsxBo5ou1eiGg9aiym4X411ebC6tUhlGuXmjkp5myXCFRwUK+AStakRBFw==;EndpointSuffix=core.windows.net";
+            //Define the name of the container defined in the azure storage account
+            string containerName = "notes";
+            //Define a new blob container client
+            var container = new BlobContainerClient(connectionString, containerName);
+            //Create the blob container if not exists
+            await container.CreateIfNotExistsAsync(Azure.Storage.Blobs.Models.PublicAccessType.Blob);
+            //Get the blob (file) using the name of the file passed
+            var blob = container.GetBlobClient(fileName);
+            //Upload the blob content using the rtf file path passed
+            await blob.UploadAsync(rtfFilePath);
+            //Return the azure storage location of the file passed
+            return $"https://evernotestoragetest.blob.core.windows.net/notes/{fileName}";
         }
     }
 }
