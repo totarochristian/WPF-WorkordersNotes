@@ -149,7 +149,7 @@ namespace EvernoteClone.ViewModel
             }
 		}
 
-        private async void GetNotes()
+        public async void GetNotes()
         {
 			//If there is a selected notebook
 			if(SelectedNotebook != null)
@@ -201,11 +201,9 @@ namespace EvernoteClone.ViewModel
         }
 
         public void StopEditing(Note note)
-        {
+        { 
             //Hide the text box setting the visibility to collapsed
             IsVisibleNote = Visibility.Collapsed;
-			//Update the last update at property of the note before call the update method
-			note.UpdatedAt = DateTime.Now;
             //Update the note passed to the method
             DatabaseHelper.Update(note);
             //Update note in the collection adding the values saved in the database
