@@ -215,7 +215,7 @@ namespace EvernoteClone.ViewModel
             GetNotes();
         }
 
-        public void DeleteNotebook(Notebook notebook)
+        public async void DeleteNotebook(Notebook notebook)
         {
             //Before delete the notebook, is mandatory delete all the related notes, so retrieve all the notes linked to this notebook
             List<Note> notes = (await DatabaseHelper.Read<Note>()).Where(n=>n.NotebookId == notebook.Id).ToList();
