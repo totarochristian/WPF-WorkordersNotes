@@ -149,7 +149,7 @@ namespace EvernoteClone.ViewModel
             }
 		}
 
-        private async void GetNotes()
+        public async void GetNotes()
         {
 			//If there is a selected notebook
 			if(SelectedNotebook != null)
@@ -201,7 +201,7 @@ namespace EvernoteClone.ViewModel
         }
 
         public void StopEditing(Note note)
-        {
+        { 
             //Hide the text box setting the visibility to collapsed
             IsVisibleNote = Visibility.Collapsed;
             //Update the note passed to the method
