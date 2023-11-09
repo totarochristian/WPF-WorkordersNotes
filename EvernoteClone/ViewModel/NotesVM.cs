@@ -97,7 +97,7 @@ namespace EvernoteClone.ViewModel
             GetNotebooks();
 		}
 
-		public async void CreateNote(int notebookId)
+		public async void CreateNote(string notebookId)
 		{
 			Note newNote = new Note()
 			{
@@ -112,26 +112,32 @@ namespace EvernoteClone.ViewModel
             GetNotes();
         }
 
-		public void GetNotebooks()
+		public async void GetNotebooks()
 		{
-			//Read notebooks from the database (only the notebooks related to the current user logged)
-			var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId);
-			//Clear the collection
-			Notebooks.Clear();
-			//Add the notebooks readed in the collection
-			foreach(var notebook in notebooks)
+			//Read notebooks from the database
+			var notebooks = await DatabaseHelper.Read<Notebook>();
+			//If notebooks founded in the database
+			if(notebooks!= null)
 			{
-				Notebooks.Add(notebook);
-			}
+                //Filter notebooks and gets only the notebooks related to the current user logged
+                var notebooksFiltered = notebooks.Where(n => n.UserId == App.UserId);
+                //Clear the collection
+                Notebooks.Clear();
+                //Add the notebooks readed in the collection
+                foreach (var notebook in notebooksFiltered)
+                {
+                    Notebooks.Add(notebook);
+                }
+            }
 		}
 
-        private void GetNotes()
+        private async void GetNotes()
         {
 			//If there is a selected notebook
 			if(SelectedNotebook != null)
 			{
                 //Read notes from the database that are related to the notebook selected
-                var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+                var notes = (await DatabaseHelper.Read<Note>()).Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
                 //Clear the collection
                 Notes.Clear();
                 //Add the notes readed in the collection
