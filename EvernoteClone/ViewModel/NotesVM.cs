@@ -55,6 +55,19 @@ namespace EvernoteClone.ViewModel
             }
         }
 
+        private Visibility isVisibleNote;
+        public Visibility IsVisibleNote
+        {
+            get { return isVisibleNote; }
+            set
+            {
+                isVisibleNote = value;
+
+                //Call the event to change the visibility of the text box in the grid of the note element in the list view
+                OnPropertyChanged("IsVisibleNote");
+            }
+        }
+
         public ObservableCollection<Note> Notes { get; set; }
 
 		public NewNotebookCommand NewNotebookCommand { get; set; }
@@ -78,6 +91,7 @@ namespace EvernoteClone.ViewModel
 			Notebooks = new ObservableCollection<Notebook>();
 			Notes = new ObservableCollection<Note>();
 			IsVisibleNotebook = Visibility.Collapsed;
+			IsVisibleNote = Visibility.Collapsed;
 
 			//Update notebooks in the collection adding the values saved previously in the database
 			GetNotebooks();
@@ -170,8 +184,11 @@ namespace EvernoteClone.ViewModel
 
 		public void StartEditing<T>(T parameter)
 		{
-			IsVisibleNotebook = Visibility.Visible;
-		}
+            if (parameter.GetType().Name == typeof(Notebook).Name)
+				IsVisibleNotebook = Visibility.Visible;
+			else if (parameter.GetType() == typeof(Note))
+                IsVisibleNote = Visibility.Visible;
+        }
 
         public void StopEditing(Notebook notebook)
         {
@@ -181,6 +198,16 @@ namespace EvernoteClone.ViewModel
 			DatabaseHelper.Update(notebook);
             //Update notebooks in the collection adding the values saved in the database
             GetNotebooks();
+        }
+
+        public void StopEditing(Note note)
+        {
+            //Hide the text box setting the visibility to collapsed
+            IsVisibleNote = Visibility.Collapsed;
+            //Update the note passed to the method
+            DatabaseHelper.Update(note);
+            //Update note in the collection adding the values saved in the database
+            GetNotes();
         }
     }
 }
