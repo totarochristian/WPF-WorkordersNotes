@@ -55,7 +55,13 @@
                   SelectedItem="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNote Note="{Binding}"/>
+                    <uc:DisplayNote Note="{Binding}">
+                        <uc:DisplayNote.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" />
+                            </ContextMenu>
+                        </uc:DisplayNote.ContextMenu>
+                    </uc:DisplayNote>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
