@@ -117,7 +117,7 @@ namespace EvernoteClone.ViewModel
 			//Read notebooks from the database
 			var notebooks = await DatabaseHelper.Read<Notebook>();
 			//If notebooks founded in the database
-			if(notebooks!= null)
+			if(notebooks != null)
 			{
                 //Filter notebooks and gets only the notebooks related to the current user logged
                 var notebooksFiltered = notebooks.Where(n => n.UserId == App.UserId);
@@ -128,6 +128,11 @@ namespace EvernoteClone.ViewModel
                 {
                     Notebooks.Add(notebook);
                 }
+			}
+			else
+			{
+                //Clear the collection
+                Notebooks.Clear();
             }
 		}
 
@@ -136,14 +141,25 @@ namespace EvernoteClone.ViewModel
 			//If there is a selected notebook
 			if(SelectedNotebook != null)
 			{
-                //Read notes from the database that are related to the notebook selected
-                var notes = (await DatabaseHelper.Read<Note>()).Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
-                //Clear the collection
-                Notes.Clear();
-                //Add the notes readed in the collection
-                foreach (var note in notes)
-                {
-                    Notes.Add(note);
+				//Read notes from the database that are related to the notebook selected
+				var notes = (await DatabaseHelper.Read<Note>());
+				//If notes founded in the database
+				if(notes != null)
+				{
+                    //Filter the notes using the selected notebook
+                    var notesFiltered = notes.Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+                    //Clear the collection
+                    Notes.Clear();
+                    //Add the notes readed in the collection
+                    foreach (var note in notesFiltered)
+                    {
+                        Notes.Add(note);
+                    }
+				}
+				else
+				{
+                    //Clear the collection
+                    Notes.Clear();
                 }
             }
         }
