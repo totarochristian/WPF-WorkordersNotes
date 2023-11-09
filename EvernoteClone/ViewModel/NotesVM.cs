@@ -1,14 +1,17 @@
-﻿using EvernoteClone.Model;
+﻿using Azure.Storage.Blobs;
+using EvernoteClone.Model;
 using EvernoteClone.ViewModel.Commands;
 using EvernoteClone.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace EvernoteClone.ViewModel
 {
@@ -222,10 +225,19 @@ namespace EvernoteClone.ViewModel
 
         public void DeleteNote(Note note)
         {
+            //Delete blob file using the id of the note
+            DeleteBlobFile(note.Id);
             //Delete the note passed to the method
             DatabaseHelper.Delete(note);
             //Update notes in the collection
             GetNotes();
+        }
+
+        private void DeleteBlobFile(string id)
+        {
+            BlobServiceClient blobServiceClient = new BlobServiceClient(App.connectionString);
+            BlobContainerClient cont = blobServiceClient.GetBlobContainerClient(App.containerName);
+            cont.GetBlobClient($"{id}.rtf").DeleteIfExists();
         }
     }
 }
