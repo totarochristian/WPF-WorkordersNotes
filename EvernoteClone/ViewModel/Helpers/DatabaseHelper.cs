@@ -64,7 +64,7 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <typeparam name="T">Type of the object to be updated in the database</typeparam>
         /// <param name="item">Object to be updated in the database</param>
         /// <returns></returns>
-        public static bool Update<T>(T item)
+        public static async Task<bool> Update<T>(T item)
         {
             //bool result = false;
 
