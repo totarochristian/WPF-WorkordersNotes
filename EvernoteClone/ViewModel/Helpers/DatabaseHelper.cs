@@ -64,7 +64,7 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <typeparam name="T">Type of the object to be updated in the database</typeparam>
         /// <param name="item">Object to be updated in the database</param>
         /// <returns></returns>
-        public static async Task<bool> Update<T>(T item)
+        public static async Task<bool> Update<T>(T item) where T : HasId
         {
             //bool result = false;
 
@@ -88,8 +88,8 @@ namespace EvernoteClone.ViewModel.Helpers
             //Initialize the http client
             using (var client = new HttpClient())
             {
-                //Start the post request to the path of the database composed with the name of the item type
-                var result = await client.PostAsync($"{dbPath}{item.GetType().Name.ToLower()}.json", content);
+                //Start the patch request to the path of the database composed with the name of the item type, and use the id of the item to patch data
+                var result = await client.PatchAsync($"{dbPath}{item.GetType().Name.ToLower()}/{item.Id}.json", content);
                 //If the result is success
                 if (result.IsSuccessStatusCode)
                 {
