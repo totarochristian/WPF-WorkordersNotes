@@ -18,27 +18,27 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
 ## GUI
 ### Main
 ![](/Screenshots/Main.png)
-At the opening of the application this will be displayed.
+<br />At the opening of the application this will be displayed.
 
 ### Login 
 ![](/Screenshots/Login.png)
-Simple login form displayed if the user isn't authenticated.
+<br />Simple login form displayed if the user isn't authenticated.
 
 ### Register
 ![](/Screenshots/Register.png)
-Simple register form displayed if the user isn't authenticated and has clicked on register link in the login form.
+<br />Simple register form displayed if the user isn't authenticated and has clicked on register link in the login form.
 
 ### Notebooks
 ![](/Screenshots/Notebooks.png)
-If the user is authenticated, the main form could be used.
+<br />If the user is authenticated, the main form could be used.
 
 #### Rename notebooks
 ![](/Screenshots/Rename.png)
-If the user right click on a notebook name, could start the editing of the name of the notebook.
+<br />If the user right click on a notebook name, could start the editing of the name of the notebook.
 
 ### Notes
 ![](/Screenshots/Notes.png)
-If the user select a notebook in the relative list and then click on a note, the note content will be displayed in the right editor and then the user could start to edit the content itself.
+<br />If the user select a notebook in the relative list and then click on a note, the note content will be displayed in the right editor and then the user could start to edit the content itself.
 To save the data the user must click on the save button.
 In the editor there is the possibility to recognize the speech, clicking the speech button.
 The speech recognition is setted on italian language.
