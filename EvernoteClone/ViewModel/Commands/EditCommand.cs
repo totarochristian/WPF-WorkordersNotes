@@ -29,8 +29,8 @@ namespace EvernoteClone.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            //Pass the type of the parameter passed to the command (this will select the correct IsVisible variable in the VM method)
-            VM.StartEditing(parameter.GetType());
+            //Pass the parameter passed to the command (this will select the correct IsVisible variable in the VM method)
+            VM.StartEditing(parameter);
         }
     }
 }
