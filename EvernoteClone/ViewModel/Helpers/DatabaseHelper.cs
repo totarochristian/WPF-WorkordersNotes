@@ -66,20 +66,20 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns></returns>
         public static bool Update<T>(T item)
         {
-            bool result = false;
+            //bool result = false;
 
-            //Connect to the database
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            {
-                //Create a generic table in the database, if not exists
-                conn.CreateTable<T>();
-                //Update the item in the database and save the rows affected
-                int rows = conn.Update(item);
-                //If the number of rows affected is greater then 0, set result to true, otherwise false
-                result = rows > 0;
-            }
+            ////Connect to the database
+            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //{
+            //    //Create a generic table in the database, if not exists
+            //    conn.CreateTable<T>();
+            //    //Update the item in the database and save the rows affected
+            //    int rows = conn.Update(item);
+            //    //If the number of rows affected is greater then 0, set result to true, otherwise false
+            //    result = rows > 0;
+            //}
 
-            return result;
+            //return result;
         }
 
         /// <summary>
