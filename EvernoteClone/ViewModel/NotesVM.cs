@@ -204,6 +204,8 @@ namespace EvernoteClone.ViewModel
         {
             //Hide the text box setting the visibility to collapsed
             IsVisibleNote = Visibility.Collapsed;
+			//Update the last update at property of the note before call the update method
+			note.UpdatedAt = DateTime.Now;
             //Update the note passed to the method
             DatabaseHelper.Update(note);
             //Update note in the collection adding the values saved in the database
