@@ -217,6 +217,11 @@ namespace EvernoteClone.ViewModel
 
         public void DeleteNotebook(Notebook notebook)
         {
+            //Before delete the notebook, is mandatory delete all the related notes, so retrieve all the notes linked to this notebook
+            List<Note> notes = (await DatabaseHelper.Read<Note>()).Where(n=>n.NotebookId == notebook.Id).ToList();
+            //For each note in the notes list founded, call the DeleteNode method
+            foreach (Note note in notes)
+                DeleteNote(note);
             //Delete the notebook passed to the method
             DatabaseHelper.Delete(notebook);
             //Update notebooks in the collection
