@@ -15,7 +15,7 @@
             <vm:LoginVM x:Key="vm"/>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid DataContext="{StaticResource vm}" VerticalAlignment="Center">
+    <Grid DataContext="{StaticResource vm}" VerticalAlignment="Center" Margin="10">
         <StackPanel Visibility="{Binding LoginVisibility}" Margin="10">
             <TextBlock Text="Email:" />
             <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
