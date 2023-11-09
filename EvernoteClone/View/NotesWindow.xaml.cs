@@ -209,12 +209,14 @@ namespace EvernoteClone.View
             viewModel.SelectedNote.FileLocation = rtfFile;
             //Update the selected note in the local database
             DatabaseHelper.Update(viewModel.SelectedNote);
-            //Define a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
-            FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
-            //Retrieve the content to be saved in the file from the content rich text box
-            var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
-            //Save the content in rtf format using the file stream
-            contents.Save(fileStream, DataFormats.Rtf);
+            //Define (and use) a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
+            using (FileStream fileStream = new FileStream(rtfFile, FileMode.Create))
+            {
+                //Retrieve the content to be saved in the file from the content rich text box
+                var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
+                //Save the content in rtf format using the file stream
+                contents.Save(fileStream, DataFormats.Rtf);
+            }
         }
     }
 }
