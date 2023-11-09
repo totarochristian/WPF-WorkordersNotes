@@ -76,7 +76,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ToolBarTray DockPanel.Dock="Top">
+        <ToolBarTray x:Name="contentToolbar" DockPanel.Dock="Top">
             <ToolBar>
                 <Button x:Name="speechButton" Content="Speech" Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton" Content="B" FontWeight="Bold" Click="BoldButton_Click"/>
