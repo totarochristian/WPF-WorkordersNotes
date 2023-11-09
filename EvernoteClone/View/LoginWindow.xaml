@@ -74,9 +74,15 @@
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
+                        <i:ControlStoryboardAction Storyboard="{StaticResource MoveUp}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBlock>
         </StackPanel>
     </Grid>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:ControlStoryboardAction Storyboard="{StaticResource MoveUp}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </Window>
