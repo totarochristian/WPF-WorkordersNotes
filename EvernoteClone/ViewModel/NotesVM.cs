@@ -74,6 +74,7 @@ namespace EvernoteClone.ViewModel
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
 		public EndEditingCommand EndEditingCommand { get; set; }
+        public DeleteCommand DeleteCommand { get; set; }
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -86,6 +87,7 @@ namespace EvernoteClone.ViewModel
 			NewNoteCommand = new NewNoteCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);
+            DeleteCommand = new DeleteCommand(this);
 
 			//Define initial values inside the collections displayed in the list view
 			Notebooks = new ObservableCollection<Notebook>();
@@ -207,6 +209,22 @@ namespace EvernoteClone.ViewModel
             //Update the note passed to the method
             DatabaseHelper.Update(note);
             //Update note in the collection adding the values saved in the database
+            GetNotes();
+        }
+
+        public void DeleteNotebook(Notebook notebook)
+        {
+            //Delete the notebook passed to the method
+            DatabaseHelper.Delete(notebook);
+            //Update notebooks in the collection
+            GetNotebooks();
+        }
+
+        public void DeleteNote(Note note)
+        {
+            //Delete the note passed to the method
+            DatabaseHelper.Delete(note);
+            //Update notes in the collection
             GetNotes();
         }
     }
