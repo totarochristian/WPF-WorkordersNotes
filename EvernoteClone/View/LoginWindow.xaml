@@ -8,7 +8,9 @@
         xmlns:vm="clr-namespace:EvernoteClone.ViewModel"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="LoginWindow" Height="300" Width="300" BorderThickness="1,1,1,1">
+        Title="Login" 
+        Height="300" Width="300" 
+        BorderThickness="1,1,1,1">
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
