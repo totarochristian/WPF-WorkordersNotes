@@ -209,5 +209,21 @@ namespace EvernoteClone.ViewModel
             //Update note in the collection adding the values saved in the database
             GetNotes();
         }
+
+        public void DeleteNotebook(Notebook notebook)
+        {
+            //Delete the notebook passed to the method
+            DatabaseHelper.Delete(notebook);
+            //Update notebooks in the collection
+            GetNotebooks();
+        }
+
+        public void DeleteNote(Note note)
+        {
+            //Delete the note passed to the method
+            DatabaseHelper.Delete(note);
+            //Update notes in the collection
+            GetNotes();
+        }
     }
 }
