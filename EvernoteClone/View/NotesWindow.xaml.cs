@@ -63,7 +63,7 @@ namespace EvernoteClone.View
             }
         }
 
-        private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
+        private async void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
         {
             //Clear the content rich text box before all the operations (if the selected note is empty or haven't a file, thiss will correctly clear the writing space)
             contentRichTextBox.Document.Blocks.Clear();
@@ -74,8 +74,12 @@ namespace EvernoteClone.View
                 //If the file location of the selected note isn't null or empty
                 if (!string.IsNullOrEmpty(viewModel.SelectedNote.FileLocation))
                 {
-                    //Define (and use) a file stream using the file location of the selected note in the opening mode
-                    using (FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
+                    //Define the location (download path) where save the file downloaded from azure storage
+                    string downloadPath = $"{viewModel.SelectedNote.Id}.rtf";
+                    //Download the blob file from the file location of selected note and save to the download path defined
+                    await new BlobClient(new Uri(viewModel.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
+                    //Define (and use) a file stream using the download path where previously was saved the file downloaded from azure storage
+                    using (FileStream fileStream = new FileStream(downloadPath, FileMode.Open))
                     {
                         //Set the range where will be writed the content readed from the file
                         var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
@@ -236,8 +240,8 @@ namespace EvernoteClone.View
             await container.CreateIfNotExistsAsync(Azure.Storage.Blobs.Models.PublicAccessType.Blob);
             //Get the blob (file) using the name of the file passed
             var blob = container.GetBlobClient(fileName);
-            //Upload the blob content using the rtf file path passed
-            await blob.UploadAsync(rtfFilePath);
+            //Upload the blob content using the rtf file path passed (set overwrite blob to true else get an error)
+            await blob.UploadAsync(rtfFilePath, true);
             //Return the azure storage location of the file passed
             return $"https://evernotestoragetest.blob.core.windows.net/notes/{fileName}";
         }
