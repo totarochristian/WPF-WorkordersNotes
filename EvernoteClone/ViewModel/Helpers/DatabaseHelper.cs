@@ -129,7 +129,7 @@ namespace EvernoteClone.ViewModel.Helpers
             using (var client = new HttpClient())
             {
                 //Start the patch request to the path of the database composed with the name of the item type, and use the id of the item to patch data
-                var result = await client.PatchAsync($"{dbPath}{item.GetType().Name.ToLower()}/{item.Id}.json", content);
+                var result = await client.DeleteAsync($"{dbPath}{item.GetType().Name.ToLower()}/{item.Id}.json");
                 //If the result is success
                 if (result.IsSuccessStatusCode)
                 {
