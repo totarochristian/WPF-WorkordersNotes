@@ -203,14 +203,14 @@ namespace EvernoteClone.View
             fontSizesComboBox.Text = selectedFontSize.ToString();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             //Define the name of the rtf file to save (use the id of the selected note and the current directory)
             string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
             //Assign the new file location inside the selected note data
             viewModel.SelectedNote.FileLocation = rtfFile;
             //Update the selected note in the local database
-            DatabaseHelper.Update(viewModel.SelectedNote);
+            await DatabaseHelper.Update(viewModel.SelectedNote);
             //Define (and use) a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
             using (FileStream fileStream = new FileStream(rtfFile, FileMode.Create))
             {
