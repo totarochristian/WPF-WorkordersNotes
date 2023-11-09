@@ -125,10 +125,6 @@ namespace EvernoteClone.ViewModel.Helpers
 
             //return result;
 
-            //Serialize the item passed as parameter making the body of the REST call that will be done to save data in the firebase database
-            var body = JsonConvert.SerializeObject(item);
-            //Define the content using the serialized object, the utf-8 encoding and the string "application/json" as media type
-            var content = new StringContent(body, Encoding.UTF8, "application/json");
             //Initialize the http client
             using (var client = new HttpClient())
             {
