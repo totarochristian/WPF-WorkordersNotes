@@ -49,7 +49,7 @@ namespace EvernoteClone.ViewModel.Commands
                 if (note != null)
                 {
                     //Call the delete method of VM, deleting the casted note
-                    VM.DeleteNote(notebook);
+                    VM.DeleteNote(note);
                 }
             }
         }
