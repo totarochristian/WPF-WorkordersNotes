@@ -92,11 +92,11 @@ namespace EvernoteClone.View
                         //Load the content in the file stream in the rtf format
                         contents.Load(fileStream, DataFormats.Rtf);
                     }
-                    //Enable the content rich text box if the user select a note
-                    contentRichTextBox.IsEnabled = true;
-                    //Enable the content toolbar if the user don't select a note
-                    contentToolbar.IsEnabled = true;
                 }
+                //Enable the content rich text box if the user select a note
+                contentRichTextBox.IsEnabled = true;
+                //Enable the content toolbar if the user don't select a note
+                contentToolbar.IsEnabled = true;
             }
             else
             {
