@@ -12,6 +12,26 @@
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
+            <Storyboard x:Key="MoveUp">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="22"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="4.400002199999999"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0.999999875"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="155"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="255"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button" Storyboard.TargetProperty="(FrameworkElement.Height)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="20"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
         </ResourceDictionary>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}" VerticalAlignment="Center" Margin="10">
@@ -20,7 +40,16 @@
             <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Password:" />
             <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Login" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}"/>
+            <Button x:Name="button" Content="Login" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}" RenderTransformOrigin="0.5,0.5" Width="255" Height="20">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
             <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
