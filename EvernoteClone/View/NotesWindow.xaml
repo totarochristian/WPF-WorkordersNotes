@@ -9,7 +9,7 @@
         xmlns:uc="clr-namespace:EvernoteClone.View.UserControls"
         mc:Ignorable="d"
         Title="Notes" 
-        Icon="../Notes.ico"
+        Icon="Notes.ico"
         Height="600" Width="1000">
     <Window.Resources>
         <vw:NotesVM x:Key="vm"/>

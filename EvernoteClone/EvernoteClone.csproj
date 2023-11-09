@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Notes.ico" />
+    <Content Include="View\Notes.ico" />
   </ItemGroup>
 
   <ItemGroup>
