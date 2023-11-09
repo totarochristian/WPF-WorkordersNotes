@@ -73,12 +73,14 @@ namespace EvernoteClone.View
                 //If the file location of the selected note isn't null or empty
                 if (!string.IsNullOrEmpty(viewModel.SelectedNote.FileLocation))
                 {
-                    //Define a file stream using the file location of the selected note in the opening mode
-                    FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open);
-                    //Set the range where will be writed the content readed from the file
-                    var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
-                    //Load the content in the file stream in the rtf format
-                    contents.Load(fileStream, DataFormats.Rtf);
+                    //Define (and use) a file stream using the file location of the selected note in the opening mode
+                    using (FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
+                    {
+                        //Set the range where will be writed the content readed from the file
+                        var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
+                        //Load the content in the file stream in the rtf format
+                        contents.Load(fileStream, DataFormats.Rtf);
+                    }
                 }
             }
         }
