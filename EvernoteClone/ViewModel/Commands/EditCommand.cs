@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvernoteClone.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,8 @@ namespace EvernoteClone.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            VM.StartEditing();
+            //Pass the type of the parameter passed to the command (this will select the correct IsVisible variable in the VM method)
+            VM.StartEditing(parameter.GetType());
         }
     }
 }

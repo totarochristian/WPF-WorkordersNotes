@@ -34,7 +34,7 @@
                         <uc:DisplayNotebook Notebook="{Binding}">
                             <uc:DisplayNotebook.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" />
+                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
@@ -58,7 +58,7 @@
                     <uc:DisplayNote Note="{Binding}">
                         <uc:DisplayNote.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" />
+                                <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}" />
                             </ContextMenu>
                         </uc:DisplayNote.ContextMenu>
                     </uc:DisplayNote>
