@@ -210,10 +210,6 @@ namespace EvernoteClone.View
             string fileName = $"{viewModel.SelectedNote.Id}.rtf";
             //Define the path of the rtf file to save (use the file name defined and the current directory)
             string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
-            //Assign the new file location (in the azure storage container) inside the selected note data
-            viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
-            //Update the selected note in the local database
-            await DatabaseHelper.Update(viewModel.SelectedNote);
             //Define (and use) a file stream to create the file (this will re-create the file if there is a file with the same name in the same location)
             using (FileStream fileStream = new FileStream(rtfFile, FileMode.Create))
             {
@@ -222,6 +218,10 @@ namespace EvernoteClone.View
                 //Save the content in rtf format using the file stream
                 contents.Save(fileStream, DataFormats.Rtf);
             }
+            //Assign the new file location (in the azure storage container) inside the selected note data
+            viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
+            //Update the selected note in the local database
+            await DatabaseHelper.Update(viewModel.SelectedNote);
         }
 
         private async Task<string> UpdateFile(string rtfFilePath, string fileName)
