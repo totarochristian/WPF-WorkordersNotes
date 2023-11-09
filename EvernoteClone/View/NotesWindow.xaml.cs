@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using EvernoteClone.Model;
 using EvernoteClone.ViewModel;
 using EvernoteClone.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
@@ -222,10 +223,14 @@ namespace EvernoteClone.View
                 //Save the content in rtf format using the file stream
                 contents.Save(fileStream, DataFormats.Rtf);
             }
+            //Update the last update of the selected note
+            viewModel.SelectedNote.UpdatedAt = DateTime.Now;
             //Assign the new file location (in the azure storage container) inside the selected note data
             viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
             //Update the selected note in the local database
             await DatabaseHelper.Update(viewModel.SelectedNote);
+            //Update notes in the collection because the UpdateAt property is changed
+            viewModel.GetNotes();
         }
 
         private async Task<string> UpdateFile(string rtfFilePath, string fileName)
