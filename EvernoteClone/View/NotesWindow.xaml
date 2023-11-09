@@ -36,11 +36,11 @@
                         <uc:DisplayNotebook Notebook="{Binding}">
                             <uc:DisplayNotebook.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" />
+                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
-                        <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}">
+                        <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisibleNotebook}">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="LostFocus">
                                     <i:InvokeCommandAction 
@@ -57,11 +57,28 @@
                   SelectedItem="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNote Note="{Binding}"/>
+                    <Grid>
+                        <uc:DisplayNote Note="{Binding}">
+                            <uc:DisplayNote.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}" />
+                                </ContextMenu>
+                            </uc:DisplayNote.ContextMenu>
+                        </uc:DisplayNote>
+                        <TextBox Text="{Binding Title}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisibleNote}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="LostFocus">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}" 
+                                        CommandParameter="{Binding}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ToolBarTray DockPanel.Dock="Top">
+        <ToolBarTray x:Name="contentToolbar" DockPanel.Dock="Top">
             <ToolBar>
                 <Button x:Name="speechButton" Content="Speech" Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton" Content="B" FontWeight="Bold" Click="BoldButton_Click"/>

@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using EvernoteClone.Model;
 using EvernoteClone.ViewModel;
 using EvernoteClone.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
@@ -46,6 +47,11 @@ namespace EvernoteClone.View
             List<double> fontSizes = new List<double>() { 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 48, 64, 72 };
             //Assign the font sizes defined to the font sizes combo box
             fontSizesComboBox.ItemsSource = fontSizes;
+
+            //Disable the content rich text box if the user don't select a note
+            contentRichTextBox.IsEnabled = false;
+            //Disable the content toolbar if the user don't select a note
+            contentToolbar.IsEnabled = false;
         }
 
         protected override void OnActivated(EventArgs e)
@@ -86,7 +92,18 @@ namespace EvernoteClone.View
                         //Load the content in the file stream in the rtf format
                         contents.Load(fileStream, DataFormats.Rtf);
                     }
+                    //Enable the content rich text box if the user select a note
+                    contentRichTextBox.IsEnabled = true;
+                    //Enable the content toolbar if the user don't select a note
+                    contentToolbar.IsEnabled = true;
                 }
+            }
+            else
+            {
+                //Disable the content rich text box if the user don't select a note
+                contentRichTextBox.IsEnabled = false;
+                //Disable the content toolbar if the user don't select a note
+                contentToolbar.IsEnabled = false;
             }
         }
 
@@ -222,10 +239,18 @@ namespace EvernoteClone.View
                 //Save the content in rtf format using the file stream
                 contents.Save(fileStream, DataFormats.Rtf);
             }
+            //Update the last update of the selected note
+            viewModel.SelectedNote.UpdatedAt = DateTime.Now;
             //Assign the new file location (in the azure storage container) inside the selected note data
             viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
             //Update the selected note in the local database
             await DatabaseHelper.Update(viewModel.SelectedNote);
+            //Update notes in the collection because the UpdateAt property is changed
+            viewModel.GetNotes();
+            //Disable the content rich text box if the user don't select a note
+            contentRichTextBox.IsEnabled = false;
+            //Disable the content toolbar if the user don't select a note
+            contentToolbar.IsEnabled = false;
         }
 
         private async Task<string> UpdateFile(string rtfFilePath, string fileName)
