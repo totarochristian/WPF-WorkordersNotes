@@ -24,21 +24,6 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns></returns>
         public static async Task<bool> Insert<T>(T item)
         {
-            //bool result = false;
-
-            ////Connect to the database
-            //using(SQLiteConnection conn = new SQLiteConnection(dbFile))
-            //{
-            //    //Create a generic table in the database, if not exists
-            //    conn.CreateTable<T>();
-            //    //Insert the item in the database and save the rows affected
-            //    int rows = conn.Insert(item);
-            //    //If the number of rows affected is greater then 0, set result to true, otherwise false
-            //    result = rows > 0;
-            //}
-
-            //return result;
-
             //Serialize the item passed as parameter making the body of the REST call that will be done to save data in the firebase database
             var body = JsonConvert.SerializeObject(item);
             //Define the content using the serialized object, the utf-8 encoding and the string "application/json" as media type
@@ -66,21 +51,6 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns></returns>
         public static async Task<bool> Update<T>(T item) where T : HasId
         {
-            //bool result = false;
-
-            ////Connect to the database
-            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            //{
-            //    //Create a generic table in the database, if not exists
-            //    conn.CreateTable<T>();
-            //    //Update the item in the database and save the rows affected
-            //    int rows = conn.Update(item);
-            //    //If the number of rows affected is greater then 0, set result to true, otherwise false
-            //    result = rows > 0;
-            //}
-
-            //return result;
-
             //Serialize the item passed as parameter making the body of the REST call that will be done to save data in the firebase database
             var body = JsonConvert.SerializeObject(item);
             //Define the content using the serialized object, the utf-8 encoding and the string "application/json" as media type
@@ -110,21 +80,6 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns></returns>
         public static async Task<bool> Delete<T>(T item) where T : HasId
         {
-            //bool result = false;
-
-            ////Connect to the database
-            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            //{
-            //    //Create a generic table in the database, if not exists
-            //    conn.CreateTable<T>();
-            //    //Delete the item in the database and save the rows affected
-            //    int rows = conn.Delete(item);
-            //    //If the number of rows affected is greater then 0, set result to true, otherwise false
-            //    result = rows > 0;
-            //}
-
-            //return result;
-
             //Initialize the http client
             using (var client = new HttpClient())
             {
@@ -149,19 +104,6 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <returns>List with a generic type of object</returns>
         public static async Task<List<T>> Read<T>() where T : HasId
         {
-            //List<T> items;
-
-            ////Connect to the database
-            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            //{
-            //    //Create a generic table in the database, if not exists
-            //    conn.CreateTable<T>();
-            //    //Retrieve the content of the generic table in a querable interface, convert it to a list and save in items
-            //    items = conn.Table<T>().ToList();
-            //}
-
-            //return items;
-
             //initialize the http client
             using (var client = new HttpClient())
             {
