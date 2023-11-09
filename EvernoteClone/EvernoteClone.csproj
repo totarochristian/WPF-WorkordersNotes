@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Content Include="View\Notes.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
