@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EvernoteClone.Model;
+using Newtonsoft.Json;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace EvernoteClone.ViewModel.Helpers
             var body = JsonConvert.SerializeObject(item);
             //Define the content using the serialized object, the utf-8 encoding and the string "application/json" as media type
             var content  = new StringContent(body, Encoding.UTF8, "application/json");
-            //initialize the http client
+            //Initialize the http client
             using(var client = new HttpClient())
             {
                 //Start the post request to the path of the database composed with the name of the item type
@@ -110,7 +111,7 @@ namespace EvernoteClone.ViewModel.Helpers
         /// </summary>
         /// <typeparam name="T">Type of the objects to be readed in the database</typeparam>
         /// <returns>List with a generic type of object</returns>
-        public static List<T> Read<T>() where T : new()
+        public static async Task<List<T>> Read<T>() where T : HasId
         {
             //List<T> items;
 
@@ -125,7 +126,44 @@ namespace EvernoteClone.ViewModel.Helpers
 
             //return items;
 
-
+            //initialize the http client
+            using (var client = new HttpClient())
+            {
+                //Start the request to get data to the path of the database composed with the name of the T type
+                var result = await client.GetAsync($"{dbPath}{typeof(T).Name.ToLower()}.json");
+                //Read the result as json string async
+                var jsonResult = await result.Content.ReadAsStringAsync();
+                //If the result is success
+                if (result.IsSuccessStatusCode)
+                {
+                    //Deserialize the json result in a dictionary with string key and T value
+                    var objects = JsonConvert.DeserializeObject<Dictionary<string,T>>(jsonResult);
+                    //If there are objects readed from the database
+                    if(objects != null)
+                    {
+                        //Initialize an empty list
+                        List<T> list = new List<T>();
+                        //Foreach element in the dictionary, add the value in the list defined
+                        foreach (var o in objects)
+                        {
+                            //Set the id of the value equals to the key in the dictionary object.
+                            //To do that, create an interface called HasId, extend Notebook and Note to this class and in this
+                            //method tell that each T implement HasId.
+                            o.Value.Id = o.Key;
+                            list.Add(o.Value);
+                        }
+                        return list;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
     }
 }
