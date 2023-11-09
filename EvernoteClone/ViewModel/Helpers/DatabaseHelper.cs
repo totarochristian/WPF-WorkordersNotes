@@ -108,7 +108,7 @@ namespace EvernoteClone.ViewModel.Helpers
         /// <typeparam name="T">Type of the object to be deleted in the database</typeparam>
         /// <param name="item">Object to be deleted in the database</param>
         /// <returns></returns>
-        public static bool Delete<T>(T item)
+        public static async Task<bool> Delete<T>(T item) where T : HasId
         {
             //bool result = false;
 
