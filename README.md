@@ -21,12 +21,12 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
 <br />At the opening of the application this will be displayed.
 
 ### Login 
+Simple login form displayed if the user isn't authenticated.<br />
 ![](/Screenshots/Login.png)
-<br />Simple login form displayed if the user isn't authenticated.
 
 ### Register
+Simple register form displayed if the user isn't authenticated and has clicked on register link in the login form.<br />
 ![](/Screenshots/Register.png)
-<br />Simple register form displayed if the user isn't authenticated and has clicked on register link in the login form.
 
 ### Notebooks
 ![](/Screenshots/Notebooks.png)
