@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="3ba2d8d0-0c02-4026-903b-ab77af0c27da"
-    Publisher="CN=christian.totaro"
+    Name="41739christian.totaro.24191A6239E9A"
+    Publisher="CN=5025FADD-0357-4BA4-AAD6-717B74F32323"
     Version="1.1.0.0" />
 
   <Properties>
-    <DisplayName>EvernoteClone_Packaging</DisplayName>
-    <PublisherDisplayName>totar</PublisherDisplayName>
+    <DisplayName>WorkordersNotes</DisplayName>
+    <PublisherDisplayName>christian.totaro</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
