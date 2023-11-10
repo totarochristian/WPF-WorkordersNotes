@@ -14,6 +14,10 @@
     <system:String x:Key="NotesWindowMenuItemNewNote">Nuova nota</system:String>
     <system:String x:Key="NotesWindowMenuItemRename">Rinomina</system:String>
     <system:String x:Key="NotesWindowMenuItemDelete">Elimina</system:String>
+    <system:String x:Key="NotesWindowMenuItemOptions">Opzioni</system:String>
+    <system:String x:Key="NotesWindowMenuItemLanguage">Lingua</system:String>
+    <system:String x:Key="NotesWindowMenuItemItalian">Italiano</system:String>
+    <system:String x:Key="NotesWindowMenuItemItalian">Inglese</system:String>
     <system:String x:Key="NotesWindowToolbarItemSpeech">Parla</system:String>
     <system:String x:Key="NotesWindowToolbarItemSave">Salva</system:String>
 </ResourceDictionary>
