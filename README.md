@@ -8,8 +8,9 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
   - [Login](#login)
   - [Register](#register)
   - [Notebooks](#notebooks)
-    - [Rename notebooks](#rename-notebooks)
+    - [Rename or delete notebooks](#rename-or-delete-notebooks)
   - [Notes](#notes)
+    - [Rename or delete notes](#rename-or-delete-notes)
 - [Main features](#main-features)
 - [Technologies](#technologies)
 - [Author](#author)
@@ -32,9 +33,10 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
 ![](/Screenshots/Notebooks.png)
 <br />If the user is authenticated, the main form could be used.
 
-#### Rename notebooks
-![](/Screenshots/Rename.png)
+#### Rename or delete notebooks
+![](/Screenshots/RenameNotebook.png)
 <br />If the user right click on a notebook name, could start the editing of the name of the notebook.
+<br />If the user right click on a note name, could delete it using the delete option.
 
 ### Notes
 ![](/Screenshots/Notes.png)
@@ -42,6 +44,11 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
 To save the data the user must click on the save button.
 In the editor there is the possibility to recognize the speech, clicking the speech button.
 The speech recognition is setted on italian language.
+
+#### Rename or delete notes
+![](/Screenshots/RenameNote.png)
+<br />If the user right click on a note name, could start the editing of the name of the note.
+<br />If the user right click on a note name, could delete it using the delete option.
 
 ***
 
