@@ -13,6 +13,7 @@
     <system:String x:Key="NotesWindowMenuItemFile">File</system:String>
     <system:String x:Key="NotesWindowMenuItemNewCostumer">New customer</system:String>
     <system:String x:Key="NotesWindowMenuItemNewNote">New note</system:String>
+    <system:String x:Key="NotesWindowMenuItemExit">Exit</system:String>
     <system:String x:Key="NotesWindowMenuItemRename">Rename</system:String>
     <system:String x:Key="NotesWindowMenuItemDelete">Delete</system:String>
     <system:String x:Key="NotesWindowMenuItemOptions">Options</system:String>
