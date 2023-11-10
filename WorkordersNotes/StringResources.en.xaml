@@ -18,7 +18,7 @@
     <system:String x:Key="NotesWindowMenuItemOptions">Options</system:String>
     <system:String x:Key="NotesWindowMenuItemLanguage">Language</system:String>
     <system:String x:Key="NotesWindowMenuItemItalian">Italian</system:String>
-    <system:String x:Key="NotesWindowMenuItemItalian">English</system:String>
+    <system:String x:Key="NotesWindowMenuItemEnglish">English</system:String>
     <system:String x:Key="NotesWindowToolbarItemSpeech">Speech</system:String>
     <system:String x:Key="NotesWindowToolbarItemSave">Save</system:String>
 

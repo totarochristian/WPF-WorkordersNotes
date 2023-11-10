@@ -159,9 +159,12 @@ namespace WorkordersNotes.ViewModel
 
         public event EventHandler Authenticated;
 
+        public event EventHandler LanguageChanged;
+
         public RegisterCommand RegisterCommand { get; set; }
 		public LoginCommand LoginCommand { get; set; }
 		public ShowRegisterCommand ShowRegisterCommand { get; set; }
+        public ChangeLoginWindowLanguageCommand ChangeLanguageCommand { get; set; }
 
 		public LoginVM()
 		{
@@ -169,11 +172,20 @@ namespace WorkordersNotes.ViewModel
             RegisterCommand = new RegisterCommand(this);
 			LoginCommand = new LoginCommand(this);
 			ShowRegisterCommand = new ShowRegisterCommand(this);
+            ChangeLanguageCommand = new ChangeLoginWindowLanguageCommand(this);
 
             //Define initial values
 			LoginVisibility = Visibility.Visible;
 			RegisterVisibility = Visibility.Collapsed;
             User = new User();
+
+            //Assign the method to be called when the language change event of ChangeLanguageCommand will be invoked
+            ChangeLanguageCommand.LanguageChanged += ChangeLanguageCommand_LanguageChanged;
+        }
+
+        private void ChangeLanguageCommand_LanguageChanged(object? sender, EventArgs e)
+        {
+            LanguageChanged?.Invoke(sender, e);
         }
 
         public void SwitchViews()

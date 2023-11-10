@@ -8,9 +8,9 @@ using System.Windows.Input;
 
 namespace WorkordersNotes.ViewModel.Commands
 {
-    public class ChangeLanguageCommand : ICommand
+    public class ChangeLoginWindowLanguageCommand : ICommand
     {
-        public NotesVM VM { get; set; }
+        public LoginVM VM { get; set; }
 
         public ResourceDictionary Dictionary { get; private set; }
 
@@ -22,9 +22,9 @@ namespace WorkordersNotes.ViewModel.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public ChangeLanguageCommand(NotesVM vm)
+        public ChangeLoginWindowLanguageCommand(LoginVM vm)
         {
-            VM = vm;
+            VM = vm;            
         }
 
         public bool CanExecute(object? parameter)
@@ -44,7 +44,7 @@ namespace WorkordersNotes.ViewModel.Commands
                 switch(language)
                 {
                     case "Italian":
-                        Dictionary.Source = new Uri("..\\StringResources.it.xaml", UriKind.Relative);
+                        Dictionary.Source = new Uri("..\\..\\..\\StringResources.it.xaml", UriKind.Relative);
                         break;
                     case "English":
                         Dictionary.Source = new Uri("..\\StringResources.it.xaml", UriKind.Relative);

@@ -56,12 +56,15 @@ namespace WorkordersNotes.View
             contentRichTextBox.IsEnabled = false;
             //Disable the content toolbar if the user don't select a note
             contentToolbar.IsEnabled = false;
+
+            //Call the change language command to update the language to italian
+            viewModel.ChangeLanguageCommand.Execute("Italian");
         }
 
         private void ViewModel_LanguageChanged(object? sender, EventArgs e)
         {
             //Cast the sender as ChangeLanguageCommand
-            ChangeLanguageCommand languageCommand = sender as ChangeLanguageCommand;
+            ChangeNotesWindowLanguageCommand languageCommand = sender as ChangeNotesWindowLanguageCommand;
             //If the language command isn't null, add the dictionary inside of it in the merged dictionaries
             if(languageCommand != null)
                 this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);

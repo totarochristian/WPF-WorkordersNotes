@@ -79,7 +79,7 @@ namespace WorkordersNotes.ViewModel
 		public EndEditingCommand EndEditingCommand { get; set; }
         public DeleteCustomerCommand DeleteCustomerCommand { get; set; }
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
-        public ChangeLanguageCommand ChangeLanguageCommand { get; set; }
+        public ChangeNotesWindowLanguageCommand ChangeLanguageCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -96,7 +96,7 @@ namespace WorkordersNotes.ViewModel
 			EndEditingCommand = new EndEditingCommand(this);
             DeleteCustomerCommand = new DeleteCustomerCommand(this);
             DeleteNoteCommand = new DeleteNoteCommand(this);
-            ChangeLanguageCommand = new ChangeLanguageCommand(this);
+            ChangeLanguageCommand = new ChangeNotesWindowLanguageCommand(this);
 
             //Define initial values inside the collections displayed in the list view
             Customers = new ObservableCollection<Customer>();
@@ -109,7 +109,7 @@ namespace WorkordersNotes.ViewModel
 
             //Assign the method to be called when the language change event of ChangeLanguageCommand will be invoked
             ChangeLanguageCommand.LanguageChanged += ChangeLanguageCommand_LanguageChanged;
-		}
+        }
 
         private void ChangeLanguageCommand_LanguageChanged(object? sender, EventArgs e)
         {
