@@ -19,6 +19,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections;
+using WorkordersNotes.ViewModel.Commands;
 
 namespace WorkordersNotes.View
 {
@@ -37,6 +39,8 @@ namespace WorkordersNotes.View
             viewModel = Resources["vm"] as NotesVM;
             //Assign the method to be called when the selected note changed event will trigger (so when selected ntoe change)
             viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
+            //Assign the method to be called when the notes view model language changed event will be called
+            viewModel.LanguageChanged += ViewModel_LanguageChanged;
 
             //Retrieve the system font families ordered by the name (source)
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -52,6 +56,21 @@ namespace WorkordersNotes.View
             contentRichTextBox.IsEnabled = false;
             //Disable the content toolbar if the user don't select a note
             contentToolbar.IsEnabled = false;
+
+            //Call the change language command to update the language to the active language of the app
+            viewModel.ChangeLanguageCommand.Execute(Properties.Settings.Default.ActiveLanguage);
+        }
+
+        private void ViewModel_LanguageChanged(object? sender, EventArgs e)
+        {
+            //Cast the sender as ChangeLanguageCommand
+            ChangeNotesWindowLanguageCommand languageCommand = sender as ChangeNotesWindowLanguageCommand;
+            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries (before add, clear it)
+            if(languageCommand != null)
+            {
+                this.Resources.MergedDictionaries.Clear();
+                this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);
+            }
         }
 
         protected override void OnActivated(EventArgs e)
