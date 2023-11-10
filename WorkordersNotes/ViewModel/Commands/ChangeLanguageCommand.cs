@@ -54,7 +54,7 @@ namespace WorkordersNotes.ViewModel.Commands
                         break;
                 }
                 //Invoke the language changed event
-                LanguageChanged?.Invoke(this, new EventArgs()));
+                LanguageChanged?.Invoke(this, new EventArgs());
             }
         }
     }
