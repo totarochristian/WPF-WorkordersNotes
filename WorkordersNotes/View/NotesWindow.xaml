@@ -16,16 +16,16 @@
     </Window.Resources>
     <DockPanel DataContext="{StaticResource vm}">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="New customer" Command="{Binding NewCustomerCommand}"/>
-                <MenuItem Header="New note" Command="{Binding NewNoteCommand}" CommandParameter="{Binding SelectedNotebook}"/>
+            <MenuItem Header="{DynamicResource NotesWindowMenuItemFile}">
+                <MenuItem Header="{DynamicResource NotesWindowMenuItemNewCostumer}" Command="{Binding NewCustomerCommand}"/>
+                <MenuItem Header="{DynamicResource NotesWindowMenuItemNewNote}" Command="{Binding NewNoteCommand}" CommandParameter="{Binding SelectedNotebook}"/>
                 <Separator />
-                <MenuItem Header="Exit" Click="Exit_Click"/>
+                <MenuItem Header="{DynamicResource NotesWindowMenuItemExit}" Click="Exit_Click"/>
             </MenuItem>
-            <MenuItem Header="Options">
-                <MenuItem Header="Language">
-                    <MenuItem Header="Italian" Command="{Binding ChangeLanguageCommand}" CommandParameter="Italian"/>
-                    <MenuItem Header="English" Command="{Binding ChangeLanguageCommand}" CommandParameter="English"/>
+            <MenuItem Header="{DynamicResource NotesWindowMenuItemOptions}">
+                <MenuItem Header="{DynamicResource NotesWindowMenuItemLanguage}">
+                    <MenuItem Header="{DynamicResource NotesWindowMenuItemItalian}" Command="{Binding ChangeLanguageCommand}" CommandParameter="Italian"/>
+                    <MenuItem Header="{DynamicResource NotesWindowMenuItemEnglish}" Command="{Binding ChangeLanguageCommand}" CommandParameter="English"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
@@ -42,8 +42,8 @@
                         <uc:DisplayCustomer Customer="{Binding}">
                             <uc:DisplayCustomer.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
-                                    <MenuItem Header="Delete" Command="{Binding Source={StaticResource vm}, Path=DeleteCustomerCommand}" CommandParameter="{Binding}"/>
+                                    <MenuItem Header="{DynamicResource NotesWindowMenuItemRename}" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
+                                    <MenuItem Header="{DynamicResource NotesWindowMenuItemDelete}" Command="{Binding Source={StaticResource vm}, Path=DeleteCustomerCommand}" CommandParameter="{Binding}"/>
                                 </ContextMenu>
                             </uc:DisplayCustomer.ContextMenu>
                         </uc:DisplayCustomer>
@@ -68,8 +68,8 @@
                         <uc:DisplayNote Note="{Binding}">
                             <uc:DisplayNote.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}" />
-                                    <MenuItem Header="Delete" Command="{Binding Source={StaticResource vm}, Path=DeleteNoteCommand}" CommandParameter="{Binding}"/>
+                                    <MenuItem Header="{DynamicResource NotesWindowMenuItemRename}" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}" />
+                                    <MenuItem Header="{DynamicResource NotesWindowMenuItemDelete}" Command="{Binding Source={StaticResource vm}, Path=DeleteNoteCommand}" CommandParameter="{Binding}"/>
                                 </ContextMenu>
                             </uc:DisplayNote.ContextMenu>
                         </uc:DisplayNote>
@@ -88,7 +88,7 @@
         </ListView>
         <ToolBarTray x:Name="contentToolbar" DockPanel.Dock="Top">
             <ToolBar>
-                <Button x:Name="speechButton" Content="Speech" Click="SpeechButton_Click"/>
+                <Button x:Name="speechButton" Content="{DynamicResource NotesWindowToolbarItemSpeech}" Click="SpeechButton_Click"/>
                 <ToggleButton x:Name="boldButton" Content="B" FontWeight="Bold" Click="BoldButton_Click"/>
                 <ToggleButton x:Name="italicButton" Content="C" FontStyle="Italic" Click="ItalicButton_Click"/>
                 <ToggleButton x:Name="underlineButton" Click="UnderlineButton_Click">
@@ -96,7 +96,7 @@
                 </ToggleButton>
                 <ComboBox x:Name="fontFamilyComboBox" Width="100" SelectionChanged="FontFamilyComboBox_SelectionChanged"/>
                 <ComboBox x:Name="fontSizesComboBox" Width="50" IsEditable="True" TextBoxBase.TextChanged="FontSizesComboBox_TextChanged"/>
-                <Button x:Name="saveButton" Content="Save" Click="SaveButton_Click"/>
+                <Button x:Name="saveButton" Content="{DynamicResource NotesWindowToolbarItemSave}" Click="SaveButton_Click"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>
