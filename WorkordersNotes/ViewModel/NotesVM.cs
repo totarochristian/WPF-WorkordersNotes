@@ -85,6 +85,8 @@ namespace WorkordersNotes.ViewModel
 
 		public event EventHandler SelectedNoteChanged;
 
+        public event EventHandler LanguageChanged;
+
         public NotesVM()
 		{
 			//Define the commands related to the notes view model
@@ -104,7 +106,14 @@ namespace WorkordersNotes.ViewModel
 
 			//Update customers in the collection adding the values saved previously in the database
 			GetNotebooks();
+
+            ChangeLanguageCommand.LanguageChanged += ChangeLanguageCommand_LanguageChanged;
 		}
+
+        private void ChangeLanguageCommand_LanguageChanged(object? sender, EventArgs e)
+        {
+            LanguageChanged?.Invoke(sender, e);
+        }
 
         public async void CreateNotebook()
 		{
