@@ -19,6 +19,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections;
+using WorkordersNotes.ViewModel.Commands;
 
 namespace WorkordersNotes.View
 {
@@ -37,6 +39,7 @@ namespace WorkordersNotes.View
             viewModel = Resources["vm"] as NotesVM;
             //Assign the method to be called when the selected note changed event will trigger (so when selected ntoe change)
             viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
+            viewModel.LanguageChanged += ViewModel_LanguageChanged;
 
             //Retrieve the system font families ordered by the name (source)
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -52,6 +55,13 @@ namespace WorkordersNotes.View
             contentRichTextBox.IsEnabled = false;
             //Disable the content toolbar if the user don't select a note
             contentToolbar.IsEnabled = false;
+        }
+
+        private void ViewModel_LanguageChanged(object? sender, EventArgs e)
+        {
+            ChangeLanguageCommand languageCommand = sender as ChangeLanguageCommand;
+            if(languageCommand != null)
+                this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);
         }
 
         protected override void OnActivated(EventArgs e)
