@@ -77,7 +77,7 @@ namespace WorkordersNotes.ViewModel
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
 		public EndEditingCommand EndEditingCommand { get; set; }
-        public DeleteNotebookCommand DeleteNotebookCommand { get; set; }
+        public DeleteCustomerCommand DeleteCustomerCommand { get; set; }
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -91,7 +91,7 @@ namespace WorkordersNotes.ViewModel
 			NewNoteCommand = new NewNoteCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);
-            DeleteNotebookCommand = new DeleteNotebookCommand(this);
+            DeleteCustomerCommand = new DeleteCustomerCommand(this);
             DeleteNoteCommand = new DeleteNoteCommand(this);
 
             //Define initial values inside the collections displayed in the list view
