@@ -57,8 +57,8 @@ namespace WorkordersNotes.View
             //Disable the content toolbar if the user don't select a note
             contentToolbar.IsEnabled = false;
 
-            //Call the change language command to update the language to italian
-            viewModel.ChangeLanguageCommand.Execute("Italian");
+            //Call the change language command to update the language to the active language of the app
+            viewModel.ChangeLanguageCommand.Execute(Properties.Settings.Default.ActiveLanguage);
         }
 
         private void ViewModel_LanguageChanged(object? sender, EventArgs e)

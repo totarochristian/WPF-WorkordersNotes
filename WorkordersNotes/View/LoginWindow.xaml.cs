@@ -39,8 +39,8 @@ namespace WorkordersNotes.View
             //Set the startup location equals to the center of the owner
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-            //Call the change language command to update the language to italian
-            viewModel.ChangeLanguageCommand.Execute("Italian");
+            //Call the change language command to update the language to the active language of the app
+            viewModel.ChangeLanguageCommand.Execute(Properties.Settings.Default.ActiveLanguage);
         }
 
         private void ViewModel_LanguageChanged(object? sender, EventArgs e)
