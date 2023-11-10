@@ -79,6 +79,7 @@ namespace WorkordersNotes.ViewModel
 		public EndEditingCommand EndEditingCommand { get; set; }
         public DeleteCustomerCommand DeleteCustomerCommand { get; set; }
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
+        public ChangeLanguageCommand ChangeLanguageCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -93,6 +94,7 @@ namespace WorkordersNotes.ViewModel
 			EndEditingCommand = new EndEditingCommand(this);
             DeleteCustomerCommand = new DeleteCustomerCommand(this);
             DeleteNoteCommand = new DeleteNoteCommand(this);
+            ChangeLanguageCommand = new ChangeLanguageCommand(this);
 
             //Define initial values inside the collections displayed in the list view
             Customers = new ObservableCollection<Customer>();
