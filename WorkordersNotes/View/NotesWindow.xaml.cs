@@ -39,6 +39,7 @@ namespace WorkordersNotes.View
             viewModel = Resources["vm"] as NotesVM;
             //Assign the method to be called when the selected note changed event will trigger (so when selected ntoe change)
             viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
+            //Assign the method to be called when the notes view model language changed event will be called
             viewModel.LanguageChanged += ViewModel_LanguageChanged;
 
             //Retrieve the system font families ordered by the name (source)
@@ -59,7 +60,9 @@ namespace WorkordersNotes.View
 
         private void ViewModel_LanguageChanged(object? sender, EventArgs e)
         {
+            //Cast the sender as ChangeLanguageCommand
             ChangeLanguageCommand languageCommand = sender as ChangeLanguageCommand;
+            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries
             if(languageCommand != null)
                 this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);
         }

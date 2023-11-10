@@ -107,6 +107,7 @@ namespace WorkordersNotes.ViewModel
 			//Update customers in the collection adding the values saved previously in the database
 			GetNotebooks();
 
+            //Assign the method to be called when the language change event of ChangeLanguageCommand will be invoked
             ChangeLanguageCommand.LanguageChanged += ChangeLanguageCommand_LanguageChanged;
 		}
 
