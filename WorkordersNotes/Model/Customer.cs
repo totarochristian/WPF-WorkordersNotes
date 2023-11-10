@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorkordersNotes.Model
 {
-    public class Notebook : HasId
+    public class Customer : HasId
     {
         public string Id { get; set; }
         public string UserId { get; set; }

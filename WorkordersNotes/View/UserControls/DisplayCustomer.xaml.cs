@@ -17,32 +17,32 @@ using System.Windows.Shapes;
 namespace WorkordersNotes.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for DisplayNotebook.xaml
+    /// Interaction logic for DisplayCustomer.xaml
     /// </summary>
-    public partial class DisplayNotebook : UserControl
+    public partial class DisplayCustomer : UserControl
     {
-        public Notebook Notebook
+        public Customer Customer
         {
-            get { return (Notebook)GetValue(NotebookProperty); }
+            get { return (Customer)GetValue(NotebookProperty); }
             set { SetValue(NotebookProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NotebookProperty =
-            DependencyProperty.Register("Notebook", typeof(Notebook), typeof(DisplayNotebook), new PropertyMetadata(null, SetValues));
+            DependencyProperty.Register("Customer", typeof(Customer), typeof(DisplayCustomer), new PropertyMetadata(null, SetValues));
 
         private static void SetValues(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             //Cast the dependency object to this type of user control
-            DisplayNotebook notebookUserControl = d as DisplayNotebook;
+            DisplayCustomer notebookUserControl = d as DisplayCustomer;
             //When change the property, re-assign it to the user control if is not null
             if(notebookUserControl != null)
             {
-                notebookUserControl.DataContext = notebookUserControl.Notebook;
+                notebookUserControl.DataContext = notebookUserControl.Customer;
             }
         }
 
-        public DisplayNotebook()
+        public DisplayCustomer()
         {
             InitializeComponent();
         }

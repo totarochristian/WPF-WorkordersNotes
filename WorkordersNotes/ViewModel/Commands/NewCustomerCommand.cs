@@ -1,5 +1,4 @@
-﻿using WorkordersNotes.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,7 @@ using System.Windows.Input;
 
 namespace WorkordersNotes.ViewModel.Commands
 {
-    public class DeleteNotebookCommand : ICommand
+    public class NewCustomerCommand : ICommand
     {
         public NotesVM VM { get; set; }
 
@@ -18,7 +17,7 @@ namespace WorkordersNotes.ViewModel.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public DeleteNotebookCommand(NotesVM vm)
+        public NewCustomerCommand(NotesVM vm)
         {
             VM = vm;
         }
@@ -30,14 +29,7 @@ namespace WorkordersNotes.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            //Cast the parameter as Notebook object
-            Notebook notebook = parameter as Notebook;
-            //If the notebook retrieved isn't null
-            if (notebook != null)
-            {
-                //Call the delete method of VM, deleting the casted notebook
-                VM.DeleteNotebook(notebook);
-            }
+            VM.CreateNotebook();
         }
     }
 }
