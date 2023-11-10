@@ -9,10 +9,17 @@ namespace WorkordersNotes.ViewModel.Commands
 {
     public class ChangeLanguageCommand : ICommand
     {
+        public NotesVM VM { get; set; }
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public ChangeLanguageCommand(NotesVM vm)
+        {
+            VM = vm;
         }
 
         public bool CanExecute(object? parameter)
