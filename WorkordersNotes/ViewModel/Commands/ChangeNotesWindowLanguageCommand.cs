@@ -53,6 +53,11 @@ namespace WorkordersNotes.ViewModel.Commands
                         Dictionary.Source = new Uri("..\\StringResources.it.xaml", UriKind.Relative);
                         break;
                 }
+
+                //Set the value of the ActiveLanguage setting and save it so at reboot is updated
+                Properties.Settings.Default.ActiveLanguage = language;
+                Properties.Settings.Default.Save();
+
                 //Invoke the language changed event
                 LanguageChanged?.Invoke(this, new EventArgs());
             }
