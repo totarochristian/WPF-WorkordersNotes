@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WorkordersNotes.ViewModel.Commands
 {
-    internal class ChangeLanguageCommand
+    public class ChangeLanguageCommand
     {
+
     }
 }
