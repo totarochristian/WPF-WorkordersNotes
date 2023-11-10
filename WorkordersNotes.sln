@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkordersNotes", "EvernoteClone\WorkordersNotes.csproj", "{456F181A-2146-4C62-8448-3527464F000E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkordersNotes", "WorkordersNotes\WorkordersNotes.csproj", "{456F181A-2146-4C62-8448-3527464F000E}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WorkordersNotes_Packaging", "EvernoteClone_Packaging\WorkordersNotes_Packaging.wapproj", "{A227659A-D13A-4C43-959A-685E81FBBE68}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WorkordersNotes_Packaging", "WorkordersNotes_Packaging\WorkordersNotes_Packaging.wapproj", "{A227659A-D13A-4C43-959A-685E81FBBE68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
