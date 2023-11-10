@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=netstandard">
+    <system:String x:Key="LoginWindowTextEmail">Email:</system:String>
+    <system:String x:Key="LoginWindowTextName">Name:</system:String>
+    <system:String x:Key="LoginWindowTextLastname">Lastname:</system:String>
+    <system:String x:Key="LoginWindowTextPassword">Password:</system:String>
+    <system:String x:Key="LoginWindowTextConfirmPassword">Confirm password:</system:String>
+    <system:String x:Key="LoginWindowButtonLogin">Login</system:String>
+    <system:String x:Key="LoginWindowButtonRegister">Register</system:String>
+    <system:String x:Key="LoginWindowGoToLogin">I have an account</system:String>
+    <system:String x:Key="LoginWindowGoToRegister">Don't have an account?</system:String>
+    <system:String x:Key="NotesWindowMenuItemFile">File</system:String>
+    <system:String x:Key="NotesWindowMenuItemNewCostumer">New customer</system:String>
+    <system:String x:Key="NotesWindowMenuItemNewNote">New note</system:String>
+    <system:String x:Key="NotesWindowMenuItemRename">Rename</system:String>
+    <system:String x:Key="NotesWindowMenuItemDelete">Delete</system:String>
+    <system:String x:Key="NotesWindowMenuItemOptions">Options</system:String>
+    <system:String x:Key="NotesWindowMenuItemLanguage">Language</system:String>
+    <system:String x:Key="NotesWindowMenuItemItalian">Italian</system:String>
+    <system:String x:Key="NotesWindowMenuItemItalian">English</system:String>
+    <system:String x:Key="NotesWindowToolbarItemSpeech">Speech</system:String>
+    <system:String x:Key="NotesWindowToolbarItemSave">Save</system:String>
+
+</ResourceDictionary>
