@@ -65,9 +65,12 @@ namespace WorkordersNotes.View
         {
             //Cast the sender as ChangeLanguageCommand
             ChangeNotesWindowLanguageCommand languageCommand = sender as ChangeNotesWindowLanguageCommand;
-            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries
+            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries (before add, clear it)
             if(languageCommand != null)
+            {
+                this.Resources.MergedDictionaries.Clear();
                 this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);
+            }
         }
 
         protected override void OnActivated(EventArgs e)

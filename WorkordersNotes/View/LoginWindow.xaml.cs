@@ -47,9 +47,12 @@ namespace WorkordersNotes.View
         {
             //Cast the sender as ChangeLanguageCommand
             ChangeLoginWindowLanguageCommand languageCommand = sender as ChangeLoginWindowLanguageCommand;
-            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries
+            //If the language command isn't null, add the dictionary inside of it in the merged dictionaries (before add, clear it)
             if (languageCommand != null)
+            {
+                this.Resources.MergedDictionaries.Clear();
                 this.Resources.MergedDictionaries.Add(languageCommand.Dictionary);
+            }   
         }
 
         private void ViewModel_Authenticated(object? sender, EventArgs e)
