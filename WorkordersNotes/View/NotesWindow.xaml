@@ -33,14 +33,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <uc:DisplayNotebook Customer="{Binding}">
-                            <uc:DisplayNotebook.ContextMenu>
+                        <uc:DisplayCustomer Customer="{Binding}">
+                            <uc:DisplayCustomer.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
                                     <MenuItem Header="Delete" Command="{Binding Source={StaticResource vm}, Path=DeleteCustomerCommand}" CommandParameter="{Binding}"/>
                                 </ContextMenu>
-                            </uc:DisplayNotebook.ContextMenu>
-                        </uc:DisplayNotebook>
+                            </uc:DisplayCustomer.ContextMenu>
+                        </uc:DisplayCustomer>
                         <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisibleNotebook}">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="LostFocus">
