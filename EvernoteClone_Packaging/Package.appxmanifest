@@ -9,7 +9,7 @@
   <Identity
     Name="3ba2d8d0-0c02-4026-903b-ab77af0c27da"
     Publisher="CN=totar"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
   <Properties>
     <DisplayName>EvernoteClone_Packaging</DisplayName>
