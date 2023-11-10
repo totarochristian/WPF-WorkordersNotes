@@ -79,11 +79,11 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}" VerticalAlignment="Center">
         <StackPanel Visibility="{Binding LoginVisibility}" Margin="10">
-            <TextBlock Text="Email:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextEmail}" />
             <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Password:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextPassword}" />
             <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button x:Name="button" Content="Login" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}" RenderTransformOrigin="0.5,0.5" Width="278" Height="20">
+            <Button x:Name="button" Content="{DynamicResource LoginWindowButtonLogin}" Margin="0,5" Command="{Binding LoginCommand}" CommandParameter="{Binding User}" RenderTransformOrigin="0.5,0.5" Width="278" Height="20">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -93,7 +93,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
-            <TextBlock Text="Register" Foreground="DodgerBlue" TextDecorations="Underline">
+            <TextBlock Text="{DynamicResource LoginWindowGoToRegister}" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
@@ -102,18 +102,18 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Visibility="{Binding RegisterVisibility}" Margin="10">
-            <TextBlock Text="Email:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextEmail}" />
             <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Name:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextName}" />
             <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Last name:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextLastname}" />
             <TextBox Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Password:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextPassword}" />
             <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Confirm password:" />
+            <TextBlock Text="{DynamicResource LoginWindowTextConfirmPassword}" />
             <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Register" Margin="0,5" Command="{Binding RegisterCommand}" CommandParameter="{Binding User}"/>
-            <TextBlock Text="Login" Foreground="DodgerBlue" TextDecorations="Underline">
+            <Button Content="{DynamicResource LoginWindowButtonRegister}" Margin="0,5" Command="{Binding RegisterCommand}" CommandParameter="{Binding User}"/>
+            <TextBlock Text="{DynamicResource LoginWindowGoToLogin}" Foreground="DodgerBlue" TextDecorations="Underline">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
