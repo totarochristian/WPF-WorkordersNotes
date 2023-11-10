@@ -22,6 +22,12 @@
                 <Separator />
                 <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
+            <MenuItem Header="Options">
+                <MenuItem Header="Language">
+                    <MenuItem Header="Italian"/>
+                    <MenuItem Header="English"/>
+                </MenuItem>
+            </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
