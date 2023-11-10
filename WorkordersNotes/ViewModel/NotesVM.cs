@@ -121,7 +121,7 @@ namespace WorkordersNotes.ViewModel
 		{
 			Note newNote = new Note()
 			{
-				NotebookId = notebookId,
+				CustomerId = notebookId,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now,
 				Title = $"Note for {DateTime.Now.ToString("yyyy/MM/dd")}",
@@ -167,7 +167,7 @@ namespace WorkordersNotes.ViewModel
 				if(notes != null)
 				{
                     //Filter the notes using the selected customer
-                    var notesFiltered = notes.Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+                    var notesFiltered = notes.Where(n => n.CustomerId == SelectedNotebook.Id).ToList();
                     //Clear the collection
                     Notes.Clear();
                     //Add the notes readed in the collection
@@ -225,7 +225,7 @@ namespace WorkordersNotes.ViewModel
             SelectedNote = null;
             SelectedNotebook = null;
             //Before delete the customer, is mandatory delete all the related notes, so retrieve all the notes linked to this customer
-            List<Note> notes = (await DatabaseHelper.Read<Note>()).Where(n=>n.NotebookId == customer.Id).ToList();
+            List<Note> notes = (await DatabaseHelper.Read<Note>()).Where(n=>n.CustomerId == customer.Id).ToList();
             //For each note in the notes list founded, call the DeleteNode method
             foreach (Note note in notes)
                 DeleteNote(note, false);
