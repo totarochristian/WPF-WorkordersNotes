@@ -30,13 +30,13 @@ namespace WorkordersNotes.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            //Cast the parameter as Notebook object
-            Notebook notebook = parameter as Notebook;
-            //If the notebook retrieved isn't null
-            if (notebook != null)
+            //Cast the parameter as Customer object
+            Customer customer = parameter as Customer;
+            //If the customer retrieved isn't null
+            if (customer != null)
             {
-                //Call the delete method of VM, deleting the casted notebook
-                VM.DeleteNotebook(notebook);
+                //Call the delete method of VM, deleting the casted customer
+                VM.DeleteNotebook(customer);
             }
         }
     }

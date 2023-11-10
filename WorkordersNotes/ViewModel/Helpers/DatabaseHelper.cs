@@ -125,7 +125,7 @@ namespace WorkordersNotes.ViewModel.Helpers
                         foreach (var o in objects)
                         {
                             //Set the id of the value equals to the key in the dictionary object.
-                            //To do that, create an interface called HasId, extend Notebook and Note to this class and in this
+                            //To do that, create an interface called HasId, extend Customer and Note to this class and in this
                             //method tell that each T implement HasId.
                             o.Value.Id = o.Key;
                             list.Add(o.Value);

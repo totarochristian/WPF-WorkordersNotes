@@ -21,15 +21,15 @@ namespace WorkordersNotes.View.UserControls
     /// </summary>
     public partial class DisplayNotebook : UserControl
     {
-        public Notebook Notebook
+        public Customer Customer
         {
-            get { return (Notebook)GetValue(NotebookProperty); }
+            get { return (Customer)GetValue(NotebookProperty); }
             set { SetValue(NotebookProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NotebookProperty =
-            DependencyProperty.Register("Notebook", typeof(Notebook), typeof(DisplayNotebook), new PropertyMetadata(null, SetValues));
+            DependencyProperty.Register("Customer", typeof(Customer), typeof(DisplayNotebook), new PropertyMetadata(null, SetValues));
 
         private static void SetValues(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -38,7 +38,7 @@ namespace WorkordersNotes.View.UserControls
             //When change the property, re-assign it to the user control if is not null
             if(notebookUserControl != null)
             {
-                notebookUserControl.DataContext = notebookUserControl.Notebook;
+                notebookUserControl.DataContext = notebookUserControl.Customer;
             }
         }
 

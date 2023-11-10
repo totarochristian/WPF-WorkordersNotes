@@ -29,14 +29,14 @@ namespace WorkordersNotes.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if(parameter.GetType() == typeof(Notebook)) {
-                //Cast the parameter as Notebook object
-                Notebook notebook = parameter as Notebook;
-                //If the notebook retrieved isn't null
-                if (notebook != null)
+            if(parameter.GetType() == typeof(Customer)) {
+                //Cast the parameter as Customer object
+                Customer customer = parameter as Customer;
+                //If the customer retrieved isn't null
+                if (customer != null)
                 {
-                    //Call the stop editing method of VM, updating the casted notebook
-                    VM.StopEditing(notebook);
+                    //Call the stop editing method of VM, updating the casted customer
+                    VM.StopEditing(customer);
                 }
             }
             else if(parameter.GetType() == typeof(Note)) {

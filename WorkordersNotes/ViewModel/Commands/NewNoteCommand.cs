@@ -25,7 +25,7 @@ namespace WorkordersNotes.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            Notebook selectedNotebook = parameter as Notebook;
+            Customer selectedNotebook = parameter as Customer;
             if(selectedNotebook != null)
                 return true;
             return false;
@@ -33,7 +33,7 @@ namespace WorkordersNotes.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            Notebook selectedNotebook = parameter as Notebook;
+            Customer selectedNotebook = parameter as Customer;
             VM.CreateNote(selectedNotebook.Id);
         }
     }

@@ -17,7 +17,7 @@
     <DockPanel DataContext="{StaticResource vm}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Header="New notebook" Command="{Binding NewNotebookCommand}"/>
+                <MenuItem Header="New customer" Command="{Binding NewNotebookCommand}"/>
                 <MenuItem Header="New note" Command="{Binding NewNoteCommand}" CommandParameter="{Binding SelectedNotebook}"/>
                 <Separator />
                 <MenuItem Header="Exit" Click="Exit_Click"/>
@@ -28,12 +28,12 @@
                 <TextBlock x:Name="statusTextBlock" />
             </StatusBarItem>
         </StatusBar>
-        <ListView DockPanel.Dock="Left" Width="200" ItemsSource="{Binding Notebooks}" Background="MidnightBlue"
+        <ListView DockPanel.Dock="Left" Width="200" ItemsSource="{Binding Customers}" Background="MidnightBlue"
                   SelectedItem="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <uc:DisplayNotebook Notebook="{Binding}">
+                        <uc:DisplayNotebook Customer="{Binding}">
                             <uc:DisplayNotebook.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Rename" Command="{Binding Source={StaticResource vm}, Path=EditCommand}" CommandParameter="{Binding}"/>
