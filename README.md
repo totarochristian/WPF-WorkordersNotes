@@ -36,7 +36,7 @@ Basic WPF Evernote clone app that let the user to add / save notes grouped in no
 #### Rename or delete notebooks
 ![](/Screenshots/RenameNotebook.png)
 <br />If the user right click on a notebook name, could start the editing of the name of the notebook.
-<br />If the user right click on a note name, could delete it using the delete option.
+<br />If the user right click on a notebook name, could delete it using the delete option.
 
 ### Notes
 ![](/Screenshots/Notes.png)
