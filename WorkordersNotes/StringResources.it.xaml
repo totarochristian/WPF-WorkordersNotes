@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=netstandard">
+    <system:String x:Key="LoginWindowTextEmail">Email:</system:String>
+    <system:String x:Key="LoginWindowTextName">Nome:</system:String>
+    <system:String x:Key="LoginWindowTextLastname">Cognome:</system:String>
+    <system:String x:Key="LoginWindowTextPassword">Password:</system:String>
+    <system:String x:Key="LoginWindowTextConfirmPassword">Conferma password:</system:String>
+    <system:String x:Key="LoginWindowButtonLogin">Login</system:String>
+    <system:String x:Key="LoginWindowButtonRegister">Registrati</system:String>
+    <system:String x:Key="LoginWindowGoToLogin">Ho già un account</system:String>
+    <system:String x:Key="LoginWindowGoToRegister">Non hai un account?</system:String>
+    <system:String x:Key="NotesWindowMenuItemFile">File</system:String>
+    <system:String x:Key="NotesWindowMenuItemNewCostumer">Nuovo cliente</system:String>
+    <system:String x:Key="NotesWindowMenuItemNewNote">Nuova nota</system:String>
+    <system:String x:Key="NotesWindowMenuItemRename">Rinomina</system:String>
+    <system:String x:Key="NotesWindowMenuItemDelete">Elimina</system:String>
+    <system:String x:Key="NotesWindowToolbarItemSpeech">Parla</system:String>
+    <system:String x:Key="NotesWindowToolbarItemSave">Salva</system:String>
+</ResourceDictionary>
