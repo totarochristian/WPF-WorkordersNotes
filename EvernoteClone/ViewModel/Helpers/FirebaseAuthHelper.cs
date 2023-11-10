@@ -1,4 +1,4 @@
-﻿using EvernoteClone.Model;
+﻿using WorkordersNotes.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EvernoteClone.ViewModel.Helpers
+namespace WorkordersNotes.ViewModel.Helpers
 {
     public class FirebaseAuthHelper
     {

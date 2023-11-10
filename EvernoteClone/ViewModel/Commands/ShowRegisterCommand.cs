@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace EvernoteClone.ViewModel.Commands
+namespace WorkordersNotes.ViewModel.Commands
 {
     public class ShowRegisterCommand : ICommand
     {

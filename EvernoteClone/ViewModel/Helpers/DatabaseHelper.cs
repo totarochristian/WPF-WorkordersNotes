@@ -1,4 +1,4 @@
-﻿using EvernoteClone.Model;
+﻿using WorkordersNotes.Model;
 using Newtonsoft.Json;
 using SQLite;
 using System;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EvernoteClone.ViewModel.Helpers
+namespace WorkordersNotes.ViewModel.Helpers
 {
     class DatabaseHelper
     {

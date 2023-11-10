@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Blobs;
-using EvernoteClone.Model;
-using EvernoteClone.ViewModel;
-using EvernoteClone.ViewModel.Helpers;
+using WorkordersNotes.Model;
+using WorkordersNotes.ViewModel;
+using WorkordersNotes.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
@@ -20,7 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EvernoteClone.View
+namespace WorkordersNotes.View
 {
     /// <summary>
     /// Interaction logic for NotesWindow.xaml

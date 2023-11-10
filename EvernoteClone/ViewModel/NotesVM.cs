@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Blobs;
-using EvernoteClone.Model;
-using EvernoteClone.ViewModel.Commands;
-using EvernoteClone.ViewModel.Helpers;
+using WorkordersNotes.Model;
+using WorkordersNotes.ViewModel.Commands;
+using WorkordersNotes.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace EvernoteClone.ViewModel
+namespace WorkordersNotes.ViewModel
 {
     public class NotesVM : INotifyPropertyChanged
     {

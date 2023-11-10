@@ -1,6 +1,6 @@
-﻿using EvernoteClone.Model;
-using EvernoteClone.ViewModel.Commands;
-using EvernoteClone.ViewModel.Helpers;
+﻿using WorkordersNotes.Model;
+using WorkordersNotes.ViewModel.Commands;
+using WorkordersNotes.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using static SQLite.SQLite3;
 
-namespace EvernoteClone.ViewModel
+namespace WorkordersNotes.ViewModel
 {
     public class LoginVM : INotifyPropertyChanged
     {

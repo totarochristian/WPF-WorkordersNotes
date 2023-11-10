@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EvernoteClone.Model
+namespace WorkordersNotes.Model
 {
     public class User
     {
