@@ -61,6 +61,8 @@ This app let the user to:
 * add / edit content of notes
 * save content of notes online
 * download notes content every time user try to open it and then show the readed content in the editor
+* delete notes and notebooks
+* rename notes and notebooks
 ***
 
 ## Technologies
