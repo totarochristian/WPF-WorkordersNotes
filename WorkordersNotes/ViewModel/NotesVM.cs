@@ -73,7 +73,7 @@ namespace WorkordersNotes.ViewModel
 
         public ObservableCollection<Note> Notes { get; set; }
 
-		public NewNotebookCommand NewNotebookCommand { get; set; }
+		public NewCustomerCommand NewCustomerCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
 		public EndEditingCommand EndEditingCommand { get; set; }
@@ -87,7 +87,7 @@ namespace WorkordersNotes.ViewModel
         public NotesVM()
 		{
 			//Define the commands related to the notes view model
-			NewNotebookCommand = new NewNotebookCommand(this);
+			NewCustomerCommand = new NewCustomerCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);

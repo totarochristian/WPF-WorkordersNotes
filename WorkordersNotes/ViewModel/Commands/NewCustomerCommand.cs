@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace WorkordersNotes.ViewModel.Commands
 {
-    public class NewNotebookCommand : ICommand
+    public class NewCustomerCommand : ICommand
     {
         public NotesVM VM { get; set; }
 
@@ -17,7 +17,7 @@ namespace WorkordersNotes.ViewModel.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public NewNotebookCommand(NotesVM vm)
+        public NewCustomerCommand(NotesVM vm)
         {
             VM = vm;
         }
