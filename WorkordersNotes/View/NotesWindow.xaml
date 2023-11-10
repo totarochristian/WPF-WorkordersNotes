@@ -24,8 +24,8 @@
             </MenuItem>
             <MenuItem Header="Options">
                 <MenuItem Header="Language">
-                    <MenuItem Header="Italian"/>
-                    <MenuItem Header="English"/>
+                    <MenuItem Header="Italian" Command="{Binding ChangeLanguageCommand}" CommandParameter="Italian"/>
+                    <MenuItem Header="English" Command="{Binding ChangeLanguageCommand}" CommandParameter="English"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
