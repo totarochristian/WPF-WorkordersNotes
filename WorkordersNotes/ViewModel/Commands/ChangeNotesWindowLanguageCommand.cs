@@ -43,11 +43,11 @@ namespace WorkordersNotes.ViewModel.Commands
                 //Define the dictionary source using the language passed as parameter
                 switch(language)
                 {
-                    case "Italian":
+                    case "Italian" or "Italiano":
                         Dictionary.Source = new Uri("..\\..\\..\\StringResources.it.xaml", UriKind.Relative);
                         break;
-                    case "English":
-                        Dictionary.Source = new Uri("..\\StringResources.it.xaml", UriKind.Relative);
+                    case "English" or "Inglese":
+                        Dictionary.Source = new Uri("..\\StringResources.en.xaml", UriKind.Relative);
                         break;
                     default:
                         Dictionary.Source = new Uri("..\\StringResources.it.xaml", UriKind.Relative);
